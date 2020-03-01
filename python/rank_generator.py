@@ -49,9 +49,9 @@ def dotVersion(version):
 def save(html, rank, page, preview = False):
 
 	if preview:
-		path = $_SERVER['DOCUMENT_ROOT'].'/html/fame/rank_'+rank+'_preview.html'
+		path = '/var/www/worldofhackers.eu/html/fame/rank_'+rank+'_preview.html'
 	else:
-		path = $_SERVER['DOCUMENT_ROOT'].'/html/ranking/'+rank+'_'+str(page)+'.html'
+		path = '/var/www/worldofhackers.eu/html/ranking/'+rank+'_'+str(page)+'.html'
 
 	f = open(path, 'w')
 	f.write(html)
