@@ -30,7 +30,7 @@ if(isset($_SESSION['id'])){
     
     if (!isset($user->data['user_id']) || $user->data['user_id'] <= 1) {
 
-        require '/var/www/classes/PDO.class.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/classes/PDO.class.php';
         $pdo = PDO_DB::factory();
         
         $sql = 'SELECT login FROM users WHERE id = \''.$_SESSION['id'].'\' LIMIT 1';

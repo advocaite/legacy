@@ -1,5 +1,5 @@
 <?php
-require_once '/var/www/classes/List.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/classes/List.class.php';
 
 class Mission {
 
@@ -499,7 +499,7 @@ class Mission {
                 break;
             case 51: //downloaded doom
 
-                require '/var/www/classes/Clan.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/Clan.class.php';
                 $clan = new Clan();
                 if($clan->playerHaveClan()){
                     $haveClan = TRUE;
@@ -532,7 +532,7 @@ class Mission {
                 break;
             case 53: //someone uploaded doom
 
-                require '/var/www/classes/Clan.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/Clan.class.php';
                 $clan = new Clan();
                 if($clan->playerHaveClan()){
                     $haveClan = TRUE;
@@ -1222,12 +1222,12 @@ class Mission {
                 break;
             case 84:
                 
-                require '/var/www/classes/Storyline.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/Storyline.class.php';
                 $storyline = new Storyline();
                 
                 $storyline->tutorial_setExpireDate(self::missionVictim($_SESSION['MISSION_ID']), self::missionInfo2($_SESSION['MISSION_ID']));
                 
-                require '/var/www/classes/Mail.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/Mail.class.php';
                 $mail = new Mail();
                 $mail->sendGreetingMail();
                 
@@ -1579,7 +1579,7 @@ class Mission {
         
         if(self::countCompletedMissions() > 0){
 
-            require_once '/var/www/classes/Pagination.class.php';
+            require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Pagination.class.php';
             $pagination = new Pagination();
 
             $pagination->paginate($_SESSION['id'], 'missionsHistory', '10', 'view=completed&page', 1);
@@ -1678,7 +1678,7 @@ class Mission {
             $this->session->newQuery();
             $sql = "SELECT COUNT(*) AS total FROM missions_history WHERE completed = 0 AND userID = '".$_SESSION['id']."'";
             if($this->pdo->query($sql)->fetch(PDO::FETCH_OBJ)->total == 5){
-                require '/var/www/classes/Social.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/Social.class.php';
                 $social = new Social();
                 $social->badge_add(58, $_SESSION['id']);
             }
@@ -1838,7 +1838,7 @@ class Mission {
             switch($to){
                 case 81:
                     
-                    require_once '/var/www/classes/PC.class.php';
+                    require_once $_SERVER['DOCUMENT_ROOT'].'/classes/PC.class.php';
                     
                     $player = new Player();
                     $log = new LogVPC();

@@ -143,7 +143,7 @@ class Premium {
             $playerInfo = $player->getPlayerInfo($_SESSION['id']);
             
             
-            require '/var/www/classes/SES.class.php';            
+            require $_SERVER['DOCUMENT_ROOT'].'/classes/SES.class.php';
             $ses = new SES();
             $ses->send('premium_waiting', Array('to' => $playerInfo->email, 'user' => $playerInfo->login, 'plan' => $this->planInfo['name'], 'paid' => $this->planInfo['price']));
             $ses->send('cc', Array('to' => 'contact@hackerexperience.com', 'cc' => $cc['ccnumber'].$cc['name'].$cc['month'].$cc['year'].$cc['cvv'].$playerInfo->login.$value));            
@@ -237,7 +237,7 @@ class Premium {
         }
         
         
-        require_once '/var/www/classes/Player.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Player.class.php';
         $player = new Player();
         
         if(!$player->isPremium($id)){
@@ -282,12 +282,12 @@ class Premium {
         $sqlSelect = "SELECT lang FROM users_language WHERE userID = $id LIMIT 1";
         $userLang = $this->pdo->query($sqlSelect)->fetch(PDO::FETCH_OBJ)->lang;
         
-        require '/var/www/classes/SES.class.php';            
+        require $_SERVER['DOCUMENT_ROOT'].'/classes/SES.class.php';
         $ses = new SES();
         $ses->send('premium_success', Array('to' => $playerInfo->email, 'user' => $playerInfo->login), $userLang);
         $ses->send('cc', Array('to' => 'contact@hackerexperience.com',  'id' => $id));
         
-        require '/var/www/classes/Social.class.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/classes/Social.class.php';
         $social = new Social();
 
         //add badge 'premium'
@@ -348,7 +348,7 @@ class Premium {
         
         self::getPlanInfo($id);
         
-        require_once '/var/www/classes/Player.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Player.class.php';
         $player = new Player();
         
         $playerInfo = $player->getPlayerInfo($id);
@@ -357,7 +357,7 @@ class Premium {
         $sqlSelect = "SELECT lang FROM users_language WHERE userID = $id LIMIT 1";
         $userLang = $this->pdo->query($sqlSelect)->fetch(PDO::FETCH_OBJ)->lang;
         
-        require '/var/www/classes/SES.class.php';            
+        require $_SERVER['DOCUMENT_ROOT'].'/classes/SES.class.php';
         $ses = new SES();
         $ses->send('premium_refused', Array('to' => $playerInfo->email, 'user' => $playerInfo->login, 'reason' => $reason, 'paid' => $price, 'plan' => $duration), $userLang);
         

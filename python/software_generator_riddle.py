@@ -13,7 +13,7 @@ import string
 db = MySQLdb.connect(host="localhost",user="he",passwd="REDADCTED",db="game")
 cur = db.cursor()
 
-json_data = open('/var/www/json/riddle_software.json').read()
+json_data = open($_SERVER['DOCUMENT_ROOT'].'/json/riddle_software.json').read()
 softList = json.loads(json_data)
 
 typeDict = {

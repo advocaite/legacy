@@ -743,7 +743,7 @@ class HardwareVPC extends Player {
 
                     if($isClan == 1){
                         
-                        require '/var/www/classes/Clan.class.php';
+                        require $_SERVER['DOCUMENT_ROOT'].'/classes/Clan.class.php';
                         $clan = new Clan();
 
                         $clanIP = $clan->getClanInfo($clan->getPlayerClan())->clanip;
@@ -758,7 +758,7 @@ class HardwareVPC extends Player {
                         
                     } else {
                         
-                        require '/var/www/classes/Process.class.php';
+                        require $_SERVER['DOCUMENT_ROOT'].'/classes/Process.class.php';
                         
                         $logID = $_SESSION['id'];
                         $cid = '';
@@ -780,7 +780,7 @@ class HardwareVPC extends Player {
                     if($isClan == 0){
                         if(self::getTotalPCs() == 1){
                             
-                            require '/var/www/classes/Social.class.php';
+                            require $_SERVER['DOCUMENT_ROOT'].'/classes/Social.class.php';
                             $social = new Social();
                             
                             //add badge 'buy second pc'
@@ -823,7 +823,7 @@ class HardwareVPC extends Player {
 
                     if($xhdInfo['TOTAL'] == 0){
 
-                        require '/var/www/classes/Social.class.php';
+                        require $_SERVER['DOCUMENT_ROOT'].'/classes/Social.class.php';
                         $social = new Social();
 
                         //add badge 'buy second xhd'
@@ -850,7 +850,7 @@ class HardwareVPC extends Player {
 
                     if($isClan == 1){
                         
-                        require '/var/www/classes/Clan.class.php';
+                        require $_SERVER['DOCUMENT_ROOT'].'/classes/Clan.class.php';
                         $clan = new Clan();
 
                         $clanIP = $clan->getClanInfo($clan->getPlayerClan())->clanip;
@@ -914,7 +914,7 @@ class HardwareVPC extends Player {
                         if($act == 'net'){
                             if(!array_key_exists($partID + 1, $partArray)){
 
-                                require '/var/www/classes/Social.class.php';
+                                require $_SERVER['DOCUMENT_ROOT'].'/classes/Social.class.php';
                                 $social = new Social();
 
                                 //add badge 'max internet upgrade'
@@ -934,7 +934,7 @@ class HardwareVPC extends Player {
                                     
                                     if($hardwareInfo[strtoupper($act)] == $partArray[$partID]['POW'] * 4){
                                         
-                                        require '/var/www/classes/Social.class.php';
+                                        require $_SERVER['DOCUMENT_ROOT'].'/classes/Social.class.php';
                                         $social = new Social();
                                         
                                         if($act == 'cpu'){
@@ -955,7 +955,7 @@ class HardwareVPC extends Player {
                                 
                                 if($pcSpec['CPU'] == 4000 && $pcSpec['HDD'] == 100000 && $pcSpec['RAM'] == 2048){
 
-                                    require_once '/var/www/classes/Social.class.php';
+                                    require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Social.class.php';
                                     $social = new Social();
 
                                     //add badge 'max upgrades de 1 pc'
@@ -984,7 +984,7 @@ class HardwareVPC extends Player {
 
                     if($cid == 0){
                         $cid = '';
-                        require '/var/www/classes/Process.class.php';
+                        require $_SERVER['DOCUMENT_ROOT'].'/classes/Process.class.php';
                     }
                     
                     $process = new Process();
@@ -1284,12 +1284,12 @@ class HardwareVPC extends Player {
                 
                 <?php
                 
-                require_once '/var/www/classes/Finances.class.php';
+                require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Finances.class.php';
                 $finances = new Finances();
                 
                 if($internet != ''){
                     
-                    require '/var/www/classes/Clan.class.php';
+                    require $_SERVER['DOCUMENT_ROOT'].'/classes/Clan.class.php';
                     $clan = new Clan();
                     
                     $clanInfo = parent::getIDByIP($clan->getClanInfo($clan->getPlayerClan())->clanip, 'NPC');
@@ -1351,7 +1351,7 @@ class HardwareVPC extends Player {
         
                 <?php
         
-                require_once '/var/www/classes/Finances.class.php';
+                require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Finances.class.php';
                 $finances = new Finances();                
                 
                 $price = self::getXHDPrice(); 
@@ -1511,7 +1511,7 @@ class HardwareVPC extends Player {
                         
                 if($internet != ''){
                     
-                    require '/var/www/classes/Clan.class.php';
+                    require $_SERVER['DOCUMENT_ROOT'].'/classes/Clan.class.php';
                     $clan = new Clan();
                     
                     $clanInfo = parent::getIDByIP($clan->getClanInfo($clan->getPlayerClan())->clanip, 'NPC');
@@ -1777,7 +1777,7 @@ class HardwareVPC extends Player {
                                                 
                     } else {
                         
-                        require_once '/var/www/classes/Clan.class.php';
+                        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Clan.class.php';
                         $clan = new Clan();
 
                         $clanInfo = parent::getIDByIP($clan->getClanInfo($clan->getPlayerClan())->clanip, 'NPC');
@@ -2269,7 +2269,7 @@ class HardwareVPC extends Player {
                 // 2019: Webserver deleted
                 } elseif($selectedSoft->softtype == 18){ //deletou o webserver
                     
-                    require_once '/var/www/classes/Internet.class.php';
+                    require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Internet.class.php';
                     $internet = new Internet();
                     
                     $internet->webserver_shutdown($id);
@@ -2319,12 +2319,12 @@ class HardwareVPC extends Player {
         
         $name = 'Server #';
         
-        require_once '/var/www/classes/Ranking.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Ranking.class.php';
         $ranking = new Ranking();
 
         $ranking->updateMoneyStats('1', $stdPrice);              
         
-        require_once '/var/www/classes/Finances.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Finances.class.php';
         $finances = new Finances();
         
         if($internet != ''){
@@ -2360,12 +2360,12 @@ class HardwareVPC extends Player {
                 VALUES ('".$_SESSION['id']."', '', '".$name."')";
         $this->pdo->query($sql);
         
-        require_once '/var/www/classes/Finances.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Finances.class.php';
         $finances = new Finances();
         
         $finances->debtMoney($price, $bankAcc);
         
-        require_once '/var/www/classes/Ranking.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Ranking.class.php';
         $ranking = new Ranking();
 
         $ranking->updateMoneyStats(1, $price);        
@@ -2378,7 +2378,7 @@ class HardwareVPC extends Player {
      
         echo 'This function will stay obsolete soon. 14-10-2013';
         
-        require_once '/var/www/classes/Finances.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Finances.class.php';
         $finances = new Finances();
         
         echo "Buy new $part for $".$itemInfo[$id]['PRICE']."<br/><br/>";
@@ -2428,10 +2428,10 @@ class HardwareVPC extends Player {
     
     public function commitUpgrade($id, $itemInfo, $part, $bankAccount, $internet = 0){
         
-        require_once '/var/www/classes/Finances.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Finances.class.php';
         $finances = new Finances();
 
-        require_once '/var/www/classes/Ranking.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Ranking.class.php';
         $ranking = new Ranking();
 
             
@@ -2741,7 +2741,7 @@ class SoftwareVPC extends Player {
                     $system->handleError('Invaaaalid bank account.', $redirect);
                 }
                 
-                require '/var/www/classes/Finances.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/Finances.class.php';
                 $finances = new Finances();
 
                 if($finances->totalMoney() < $price){
@@ -2760,7 +2760,7 @@ class SoftwareVPC extends Player {
                     $system->handleError('This account does not exists.', $redirect);
                 }                                                
                 
-                require '/var/www/classes/Process.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/Process.class.php';
                 $process = new Process();
                 
                 if ($process->newProcess($_SESSION['id'], 'RESEARCH', '', 'local', $softID, $name, $acc.'/'.$deleteOldVersion, '0')) {
@@ -2796,7 +2796,7 @@ class SoftwareVPC extends Player {
                     $system->handleError('Invalid text-file name. Allowed are <strong>azAZ09- _</strong>, starting with <strong>azAZ09</strong>.', $redirect);
                 }
                 
-                require '/var/www/classes/Purifier.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/Purifier.class.php';
                 $purifier = new Purifier();
                 $purifier->set_config('software-text');
                 
@@ -2843,7 +2843,7 @@ class SoftwareVPC extends Player {
                     $system->handleError('Invalid text-file name. Allowed are <strong>azAZ09- _</strong>, starting with <strong>azAZ09</strong>.', $redirect);
                 }
                 
-                require '/var/www/classes/Purifier.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/Purifier.class.php';
                 $purifier = new Purifier();
                 $purifier->set_config('software-text');
                 
@@ -3236,7 +3236,7 @@ class SoftwareVPC extends Player {
 
                     } else {
 
-                        require_once '/var/www/classes/Clan.class.php';
+                        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Clan.class.php';
                         $clan = new Clan();
                         
                         if($clan->playerHaveClan()){
@@ -3702,7 +3702,7 @@ class SoftwareVPC extends Player {
     
     public function showSoftware($local, $pcType, $id, $folderID = '') {
 
-        require_once '/var/www/classes/Mission.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Mission.class.php';
 
         $this->mission = new Mission();
 
@@ -3731,12 +3731,12 @@ class SoftwareVPC extends Player {
                     
                 } elseif($_SESSION['MISSION_TYPE'] > 49){
 
-                    require '/var/www/classes/Storyline.class.php';
+                    require $_SERVER['DOCUMENT_ROOT'].'/classes/Storyline.class.php';
                     $storyline = new Storyline();
                     
                     if($_SESSION['LOGGED_IN'] != $storyline->nsa_getIP()){
                         
-                        require '/var/www/classes/Clan.class.php';
+                        require $_SERVER['DOCUMENT_ROOT'].'/classes/Clan.class.php';
                         $clan = new Clan();
 
                         if($clan->playerHaveClan()){
@@ -4096,7 +4096,7 @@ echo $str;
             $porct = round($hdUsage / $hddInfo['HDD'], 3) * 100 ."%";
             
             if($local == 1 && $hdUsage >= 50000 && rand(1,10) == 1){
-                require '/var/www/classes/Social.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/Social.class.php';
                 $social = new Social();
                 $social->badge_add(52, $_SESSION['id']);
             }
@@ -5992,7 +5992,7 @@ if($npc == 1 && $local == 0){
             $softwareRankingCategory = '#'.number_format($softwareRankingCategory);
         }
                 
-        require '/var/www/classes/Finances.class.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/classes/Finances.class.php';
         $finances = new Finances();
 
         if($finances->totalMoney() >= $price){
@@ -6369,8 +6369,8 @@ class LogVPC extends Player {
             $this->pdo = PDO_DB::factory();
         }
 
-        require_once '/var/www/classes/Session.class.php';
-        require_once '/var/www/classes/NPC.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Session.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/NPC.class.php';
 
         $this->session = new Session();
         $this->npc = new NPC();
@@ -7116,7 +7116,7 @@ class Virus extends Player {
             $ddosPower = round($ddosPower / 5);
         }
         
-        require_once '/var/www/classes/Clan.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Clan.class.php';
         $clan = new Clan();
 
         $myClanID = NULL;
@@ -7162,7 +7162,7 @@ class Virus extends Player {
 
             } else {
 
-                require_once '/var/www/classes/NPC.class.php';
+                require_once $_SERVER['DOCUMENT_ROOT'].'/classes/NPC.class.php';
                 $npc = new NPC();
 
                 $npcInfo = $npc->getNPCInfo($victimInfo['0']['id']);
@@ -7490,7 +7490,7 @@ class Virus extends Player {
 
                                 }
 
-                                require_once '/var/www/classes/Storyline.class.php';
+                                require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Storyline.class.php';
                                 $storyline = new Storyline();
 
                                 if($storyline->fbi_isset($ip)){
@@ -7510,7 +7510,7 @@ class Virus extends Player {
 
                         } else {
 
-                            require_once '/var/www/classes/Process.class.php';
+                            require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Process.class.php';
                             $process = new Process();
           
                             // 2019: TODO: Verify whether that line \/ is working. You really should!
@@ -7594,7 +7594,7 @@ class Virus extends Player {
 
                             if($seizedAfter == 1){
 
-                                require_once '/var/www/classes/Storyline.class.php';
+                                require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Storyline.class.php';
                                 $storyline = new Storyline();
 
                                 if($storyline->fbi_isset($ip)){
@@ -7613,7 +7613,7 @@ class Virus extends Player {
                             $report .= self::DDoS_studyClanExp($victimInfo, $ddosPower);
                             
                             //add badge
-                            require_once '/var/www/classes/Social.class.php';
+                            require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Social.class.php';
                             $social = new Social();
                             
                             $social->badge_add(13, $_SESSION['id']);
@@ -7652,7 +7652,7 @@ class Virus extends Player {
 
                             if($_SESSION['MISSION_TYPE'] == '5'){
 
-                                require_once '/var/www/classes/Mission.class.php';
+                                require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Mission.class.php';
                                 $mission = new Mission();
 
                                 if($mission->missionVictim($_SESSION['MISSION_ID']) == $ip){
@@ -7729,12 +7729,12 @@ class Virus extends Player {
         $brief = 'Hacker <a href="profile?id='.$_SESSION['id'].'">'.$hackerInfo->login.'</a> managed to DDoS and seize the FBI suspect known as <a href="profile?id='.$victimInfo['0']['id'].'">'.$victimName.'</a>.<br/>
                 '.$hackerInfo->login.' received a total bounty of <font color="green">$<b>'.$formatedBounty.'</b></font> for doing this brave act.';
 
-        require '/var/www/classes/News.class.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/classes/News.class.php';
         $news = new News();
 
         $news->news_add(-2, $title, $brief, Array($_SESSION['id'], $bounty, ''));
 
-        require_once '/var/www/classes/Mail.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Mail.class.php';
         $mail = new Mail();
 
         $title = _('Congratulations.');
@@ -7988,13 +7988,13 @@ class Virus extends Player {
         
         if(!$mission->doom_haveMission($id)){
             
-            require '/var/www/classes/Clan.class.php';
-            require '/var/www/classes/Mail.class.php';
+            require $_SERVER['DOCUMENT_ROOT'].'/classes/Clan.class.php';
+            require $_SERVER['DOCUMENT_ROOT'].'/classes/Mail.class.php';
             
             $mail = new Mail();
             $finances = new Finances();
             
-            require '/var/www/classes/Storyline.class.php';
+            require $_SERVER['DOCUMENT_ROOT'].'/classes/Storyline.class.php';
             $storyline = new Storyline();
             
             $user = parent::getPlayerInfo($id)->login;
@@ -8132,9 +8132,9 @@ class Virus extends Player {
         
         if($valid == 1){
 
-            require_once '/var/www/classes/Clan.class.php';
-            require '/var/www/classes/Storyline.class.php';
-            require '/var/www/classes/Social.class.php';
+            require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Clan.class.php';
+            require $_SERVER['DOCUMENT_ROOT'].'/classes/Storyline.class.php';
+            require $_SERVER['DOCUMENT_ROOT'].'/classes/Social.class.php';
             
             $storyline = new Storyline();
             $clan = new Clan();
@@ -8247,7 +8247,7 @@ class Virus extends Player {
                 $doomNewsText .= 'There are reasons to believe this attack is being supported by '.$evilCorp.'. ';
                 $doomNewsText .= 'NSA director is afraid that this is not the only doom virus since forensics team found more attack logs at their mainframe.';
 
-                require '/var/www/classes/News.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/News.class.php';
                 $news = New News();
                 $news->news_add(-1, $doomNewsTitle, $doomNewsText, Array('ip', 'lol', '+6'));
                                 
@@ -8374,9 +8374,9 @@ class Virus extends Player {
                     VALUES ('".$doomID."', '".$_SESSION['id']."', NOW())";
             $this->pdo->query($sql);            
             
-            require '/var/www/classes/Social.class.php';
-            require '/var/www/classes/News.class.php';
-            require '/var/www/classes/Clan.class.php';
+            require $_SERVER['DOCUMENT_ROOT'].'/classes/Social.class.php';
+            require $_SERVER['DOCUMENT_ROOT'].'/classes/News.class.php';
+            require $_SERVER['DOCUMENT_ROOT'].'/classes/Clan.class.php';
             
             $social = new Social();
             $news = New News();
@@ -8444,7 +8444,7 @@ class Virus extends Player {
             
             $news->news_add(-1, $disableNewsTitle, $disableNewsContent, Array($_SESSION['id'], $reward, ''));
             
-            require_once '/var/www/classes/Mission.class.php';
+            require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Mission.class.php';
             $mission = new Mission();
 
             if($mission->playerOnMission($idToDisable)){
@@ -8500,7 +8500,7 @@ class Virus extends Player {
     
     public function DDoS_consequences($ddosPower, $ddoserIP, $victimIP, $seizedFBI){
         
-        require_once '/var/www/classes/Storyline.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Storyline.class.php';
         $storyline = new Storyline();
 
         if($storyline->fbi_isset($victimIP) || $seizedFBI){

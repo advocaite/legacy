@@ -53,7 +53,7 @@ def save(html, rank, page, curRound):
 	else:
 		string = 'preview'
 
-	f = open('/var/www/html/fame/'+curRound+'_'+rank+'_'+string+'.html', 'w')
+	f = open($_SERVER['DOCUMENT_ROOT'].'/html/fame/'+curRound+'_'+rank+'_'+string+'.html', 'w')
 	f.write(html)
 	f.close()
 

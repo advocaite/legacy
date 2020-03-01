@@ -13,9 +13,9 @@ Class Pagination {
  
    function __construct() {
 
-        require_once '/var/www/classes/System.class.php';
-        require_once '/var/www/classes/Player.class.php';
-        require_once '/var/www/classes/PC.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/System.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Player.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/PC.class.php';
 
         $this->pdo = PDO_DB::factory();
         $this->system = new System();
@@ -1204,7 +1204,7 @@ foreach($th as $thName){
                 break;
             case 'round':
 
-                require '/var/www/classes/Storyline.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/Storyline.class.php';
                 $storyline = new Storyline();
 
                 $curRound = $storyline->round_current();

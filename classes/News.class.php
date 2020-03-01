@@ -1,6 +1,6 @@
 <?php
 
-require_once '/var/www/classes/Player.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Player.class.php';
 
 class News {
 
@@ -141,7 +141,7 @@ class News {
         
         $this->authorIP = self::getAuthorIP();
         
-        require '/var/www/classes/Purifier.class.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/classes/Purifier.class.php';
         $purifier = new Purifier();
         $purifier->set_config('news');
 
@@ -272,7 +272,7 @@ self::getAuthorSpecifics();
                 
                 if(sizeof($newsHistory > 0)){
 
-                    require '/var/www/classes/Clan.class.php';
+                    require $_SERVER['DOCUMENT_ROOT'].'/classes/Clan.class.php';
                     $clan = new Clan();
                     
                     if(!$clan->issetClan($newsHistory['0']['info1'])){
@@ -327,7 +327,7 @@ self::getAuthorSpecifics();
                 
         if(self::totalNews() > 0){
 
-            require_once '/var/www/classes/Pagination.class.php';
+            require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Pagination.class.php';
             $pagination = new Pagination();
 
             $pagination->paginate($_SESSION['id'], 'news', '15', 'page', '1', '0');

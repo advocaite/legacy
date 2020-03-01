@@ -39,7 +39,7 @@ if(isset($_POST['email'])){
 	$stmt = $pdo->prepare($sql);
 	$stmt->execute(Array(':uid' => $userInfo->id, ':code' => $code));    
 
-    require '/var/www/classes/SES.class.php';            
+    require $_SERVER['DOCUMENT_ROOT'].'/classes/SES.class.php';
     $ses = new SES();
     $ses->send('request_reset', Array('to' => $email, 'user' => $userInfo->login, 'code' => $code));
 

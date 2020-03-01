@@ -43,7 +43,7 @@ def save(html, rank, page):
 	if type(page) != int:
 		page = 'preview'
 
-	f = open('/var/www/html/fame/top_'+rank+'_'+str(page)+'.html', 'w')
+	f = open($_SERVER['DOCUMENT_ROOT'].'/html/fame/top_'+rank+'_'+str(page)+'.html', 'w')
 	f.write(html)
 	f.close()
 

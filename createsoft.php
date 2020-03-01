@@ -11,7 +11,7 @@ if(!isset($_SESSION['id'])){
 
 if(isset($_POST['name'])){
     
-    require '/var/www/classes/PDO.class.php';
+    require $_SERVER['DOCUMENT_ROOT'].'/classes/PDO.class.php';
     $pdo = PDO_DB::factory();
         
     $sql = "INSERT INTO software (id, userID, softName, softVersion, softSize, softRam, softType, isNPC)

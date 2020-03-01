@@ -1,6 +1,6 @@
 <?php
 
-require '/var/www/classes/Session.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Session.class.php';
 
 $session = new Session();
 
@@ -10,9 +10,9 @@ if($session->issetLogin()){
     
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         
-        require '/var/www/classes/Player.class.php';
-        require '/var/www/classes/Finances.class.php';
-        require '/var/www/classes/Process.class.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/classes/Player.class.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/classes/Finances.class.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/classes/Process.class.php';
         
         $player = new Player();
         $finances = new Finances();

@@ -2,7 +2,7 @@
 
 //function: restore npc software according to originalsoftware table on mysql
 
-require '/var/www/classes/PDO.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/PDO.class.php';
 
 $pdo = PDO_DB::factory();
 

@@ -1,11 +1,11 @@
 <?php
 
 require 'config.php';
-require '/var/www/classes/Session.class.php';
-require '/var/www/classes/Player.class.php';
-require '/var/www/classes/Mission.class.php';
-require '/var/www/classes/System.class.php';
-require '/var/www/classes/Clan.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Session.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Player.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Mission.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/System.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Clan.class.php';
 
 
 $session = new Session();

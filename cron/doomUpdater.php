@@ -1,6 +1,6 @@
 <?php
 
-require_once '/var/www/classes/PDO.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/classes/PDO.class.php';
 
 $pdo = PDO_DB::factory();
 

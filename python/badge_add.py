@@ -29,7 +29,7 @@ def prepare():
 	db = MySQLdb.connect(host="localhost",user="he",passwd="REDACTED",db="game",charset="utf8",init_command="set names utf8")
 	cur = db.cursor()
 
-	json_data = open('/var/www/json/badges.json').read()
+	json_data = open($_SERVER['DOCUMENT_ROOT'].'/json/badges.json').read()
 	badgeList = json.loads(json_data)
 	badgeInfo = {'name':badgeList[str(badgeID)]["name"], 'desc':badgeList[str(badgeID)]["desc"], 'collectible':badgeList[str(badgeID)]["collectible"], 'per_round':badgeList[str(badgeID)]["per_round"]}
 

@@ -27,7 +27,7 @@ if(!isset($_SESSION['SPECIAL_ID'])){
     exit();
 }
 
-require_once '/var/www/classes/Facebook.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Facebook.class.php';
 
 $fbServerURL = 'http://hackerexperience.com/';
 
@@ -145,7 +145,7 @@ if(isset($_POST['fbuser']) || isset($_POST['predefined'])){
 
             if($user){
 
-                require '/var/www/classes/Python.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/Python.class.php';
                 $python = new Python();
 
                 $gameIP1 = rand(0, 255);
@@ -157,7 +157,7 @@ if(isset($_POST['fbuser']) || isset($_POST['predefined'])){
 
                 $python->createUser($name, 0, $email, $gameIP, $user, 'facebook');
                 
-                require '/var/www/classes/Forum.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
                 $forum = new Forum();                
                 
                 $sql = 'SELECT COUNT(*) AS total, id FROM users WHERE login = \''.$name.'\' LIMIT 1';
@@ -165,7 +165,7 @@ if(isset($_POST['fbuser']) || isset($_POST['predefined'])){
                 
                 if($regInfo->total == 1){
                 
-                    require '/var/www/classes/Finances.class.php';
+                    require $_SERVER['DOCUMENT_ROOT'].'/classes/Finances.class.php';
                     $finances = new Finances();
 
                     $forum->externalRegister($name, 'special_fb', 'facebook_login', $regInfo->id);

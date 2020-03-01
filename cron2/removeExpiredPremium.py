@@ -19,7 +19,7 @@ for userID, bought, premium, paid in cur.fetchall():
 	if not imported:
 
 		imported = True
-		sys.path.insert(0, '/var/www/python')
+		sys.path.insert(0, $_SERVER['DOCUMENT_ROOT'].'/python')
 		import badge_add
 
 	badge_add.userBadge = 'user'

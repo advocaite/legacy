@@ -24,7 +24,7 @@ class Versioning{
 
         } else {
 
-            require_once '/var/www/classes/Pagination.class.php';
+            require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Pagination.class.php';
             $pagination = new Pagination();
 
             $pagination->paginate('', 'changelog', '10', 'page=changelog&tab', '');
@@ -89,7 +89,7 @@ class Versioning{
 
         } else {
 
-            require_once '/var/www/classes/Pagination.class.php';
+            require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Pagination.class.php';
             $pagination = new Pagination();
 
             $pagination->paginate('', 'bugs', '10', 'page', '');

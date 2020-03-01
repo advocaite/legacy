@@ -5,7 +5,7 @@
 
 $start = microtime(true);
 
-require '/var/www/classes/PDO.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/PDO.class.php';
 
 $pdo = PDO_DB::factory();
 

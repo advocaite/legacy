@@ -1,6 +1,6 @@
 <?php
 
-require '/var/www/classes/Session.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Session.class.php';
 $session = new Session();
 
 if ($_SERVER['REQUEST_METHOD'] != 'POST' || $session->issetLogin()) {
@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST' || $session->issetLogin()) {
     exit();
 }
 
-require '/var/www/classes/Database.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Database.class.php';
 
 $user = htmlentities($_POST['username']);
 $pass = htmlentities($_POST['password']);

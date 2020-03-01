@@ -1,8 +1,8 @@
 <?php
 
-require '/var/www/classes/Session.class.php';
-require '/var/www/classes/Ranking.class.php';
-require '/var/www/classes/Forum.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Session.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Ranking.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
 
 $session  = new Session();
 $ranking = new Ranking();
@@ -19,7 +19,7 @@ $session->logout();
 
 if($session->issetFBLogin()){
     
-    require_once '/var/www/classes/Facebook.class.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Facebook.class.php';
 
     $facebook = new Facebook(array(
         'appId' => 'REDACTED',

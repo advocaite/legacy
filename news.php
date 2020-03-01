@@ -1,10 +1,10 @@
 <?php
 
 require 'config.php';
-require '/var/www/classes/Session.class.php';
-require '/var/www/classes/Player.class.php';
-require '/var/www/classes/Storyline.class.php';
-require '/var/www/classes/News.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Session.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Player.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Storyline.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/News.class.php';
 
 $session = new Session();
 $system = new System();

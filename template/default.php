@@ -28,7 +28,7 @@ bind_textdomain_codeset($domain, 'UTF-8');
 textdomain($domain);
 
 require_once 'twitter/twitteroauth.php';
-require_once '/var/www/classes/Facebook.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Facebook.class.php';
 
 switch($fbServerURL){
     case 'http://hackerexperience.com/':

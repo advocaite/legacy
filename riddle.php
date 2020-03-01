@@ -2,7 +2,7 @@
 
 session_start();
 
-require '/var/www/classes/Session.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Session.class.php';
 $session = new Session();
 
 $result = Array();
@@ -10,7 +10,7 @@ $result['status'] = 'ERROR';
 $result['redirect'] = '';
 $result['msg'] = 'STOP SPYING ON ME!';
 
-require '/var/www/classes/Riddle.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Riddle.class.php';
 $riddle = new Riddle();
 
 if(!$session->issetInternetSession()){

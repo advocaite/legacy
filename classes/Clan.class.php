@@ -1,6 +1,6 @@
 <?php
 
-require_once '/var/www/classes/PDO.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/classes/PDO.class.php';
 
 class Clan {
     
@@ -83,7 +83,7 @@ class Clan {
                         $system->handleError('Missing information.', $redirect);
                     }
 
-                    require '/var/www/classes/Purifier.class.php';
+                    require $_SERVER['DOCUMENT_ROOT'].'/classes/Purifier.class.php';
                     $purifier = new Purifier();
                     $purifier->set_config('text');
                     
@@ -106,7 +106,7 @@ class Clan {
                     
                     if(isset($_POST['text'])){
                         
-                        require '/var/www/classes/Purifier.class.php';
+                        require $_SERVER['DOCUMENT_ROOT'].'/classes/Purifier.class.php';
                         $purifier = new Purifier();
                         $purifier->set_config('text');
                         
@@ -180,7 +180,7 @@ class Clan {
                     
                     if(isset($_POST['text'])){
                         
-                        require '/var/www/classes/Purifier.class.php';
+                        require $_SERVER['DOCUMENT_ROOT'].'/classes/Purifier.class.php';
                         $purifier = new Purifier();
                         $purifier->set_config('text');
                         
@@ -211,7 +211,7 @@ class Clan {
                         $system->handleError('Missing information.', $redirect);
                     }
                     
-                    require '/var/www/classes/Purifier.class.php';
+                    require $_SERVER['DOCUMENT_ROOT'].'/classes/Purifier.class.php';
                     $purifier = new Purifier();
                     $purifier->set_config('clan-desc');
 
@@ -272,7 +272,7 @@ class Clan {
                 
                 $this->session->addMsg('The user has been added to your clan. Welcome him to the other members!', 'success');
                 
-                require '/var/www/classes/Mail.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/Mail.class.php';
                 $mail = new Mail();
 
                 $this->session->newQuery();
@@ -321,7 +321,7 @@ class Clan {
                 $sqlSelect = "SELECT lang FROM users_language WHERE userID = ".$requestData['USER_ID']." LIMIT 1";
                 $userLang = $this->pdo->query($sqlSelect)->fetch(PDO::FETCH_OBJ)->lang;
                 
-                require '/var/www/classes/Mail.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/Mail.class.php';
                 $mail = new Mail();
 
                 if($userLang == 'br'){
@@ -355,7 +355,7 @@ class Clan {
                 $stmt->execute(array(':id' => $_SESSION['id']));
                 $data = $stmt->fetch(PDO::FETCH_OBJ);
 
-                require '/var/www/classes/BCrypt.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/BCrypt.class.php';
                 $bcrypt = new BCrypt();     
                 
                 if($bcrypt->verify($pass, $data->password) || $data->password == '0' || $data->password == ''){
@@ -396,7 +396,7 @@ class Clan {
                         $text = 'Hello, this is a message informing that you were kicked from the clan. <br/><br/><strong>Reason:</strong> '.htmlspecialchars($txt);
                     }
                     
-                    require '/var/www/classes/Mail.class.php';
+                    require $_SERVER['DOCUMENT_ROOT'].'/classes/Mail.class.php';
                     $mail = new Mail();
 
                     $mail->newMail($id, $subject, $text, 4, -4);
@@ -437,7 +437,7 @@ class Clan {
                 
                 $price = self::createClanCost();
                 
-                require '/var/www/classes/Finances.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/Finances.class.php';
                 $finances = new Finances();
 
                 if($finances->totalMoney() < $price){
@@ -484,7 +484,7 @@ class Clan {
                 $stmt->execute(array(':id' => $_SESSION['id']));
                 $data = $stmt->fetch(PDO::FETCH_OBJ);
 
-                require '/var/www/classes/BCrypt.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/BCrypt.class.php';
                 $bcrypt = new BCrypt();
 
                 if($bcrypt->verify($pass, $data->password) || $data->password == '' || $data->password == '0'){
@@ -513,7 +513,7 @@ class Clan {
                             $text = 'Hello, this is a notice to inform you that player '. $player->getPlayerInfo($_SESSION['id'])->login .' left the clan. <br/><br/><strong>Reason:</strong> '.$txt;
                         }
                         
-                        require '/var/www/classes/Mail.class.php';
+                        require $_SERVER['DOCUMENT_ROOT'].'/classes/Mail.class.php';
                         $mail = new Mail();
 
                         
@@ -1418,7 +1418,7 @@ function getWarHistory(wid){
         
         <?php
             
-        require '/var/www/classes/Storyline.class.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/classes/Storyline.class.php';
         $storyline = new Storyline();            
         
         $system = new System();
@@ -2447,7 +2447,7 @@ foreach($this->warMembersInvolved as $info){
                 <div class="row-fluid">
                     <div class="span12 badge-div">
                         <?php
-                        require '/var/www/classes/Social.class.php';
+                        require $_SERVER['DOCUMENT_ROOT'].'/classes/Social.class.php';
                         $social = new Social();
 
                         $social->badge_list($this->clanID);
@@ -2627,7 +2627,7 @@ var uid = <?php echo $this->clanID; ?>;
             
             $memberLink = '?action=list';
             
-            require '/var/www/classes/Forum.class.php';
+            require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
             $forum = new Forum();
             
             $forumClanID = $forum->getForumClanID($cid);
@@ -2714,7 +2714,7 @@ var uid = <?php echo $this->clanID; ?>;
     
     public function acceptRequest($requestID, $requestInfo){
         
-        require '/var/www/classes/Forum.class.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
         $forum = new Forum();
 
         $forumID = $forum->getForumIDByGameID($requestInfo['USER_ID']);
@@ -3167,7 +3167,7 @@ var uid = <?php echo $this->clanID; ?>;
         
         $clanCost = self::createClanCost();
 
-        require_once '/var/www/classes/Finances.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Finances.class.php';
         $finances = new Finances();
 
         if($finances->totalMoney() >= $clanCost){
@@ -3406,7 +3406,7 @@ var uid = <?php echo $this->clanID; ?>;
             
         }
         
-        require '/var/www/classes/Forum.class.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
         $forum = new Forum();
         
         $forumUser = $forum->getForumIDByGameID($_SESSION['id']);
@@ -3854,7 +3854,7 @@ die("Deprecated"); //But I'm going to use it in the future, so do not delete it
     
     public function kick($id){
         
-        require '/var/www/classes/Forum.class.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
         $forum = new Forum();
         
         $forumUser = $forum->getForumIDByGameID($id);
@@ -3980,7 +3980,7 @@ die("Deprecated"); //But I'm going to use it in the future, so do not delete it
         
         $finances->debtMoney($clanCost, $acc);
 
-        require '/var/www/classes/Forum.class.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
         $forum = new Forum();
 
         $forum->createForum($clanName, $clanID);

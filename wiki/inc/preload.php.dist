@@ -7,7 +7,7 @@
  */
 
 // set this to your farm directory
-//if(!defined('DOKU_FARMDIR')) define('DOKU_FARMDIR', '/var/www/farm');
+//if(!defined('DOKU_FARMDIR')) define('DOKU_FARMDIR', $_SERVER['DOCUMENT_ROOT'].'/farm');
 
 // include this after DOKU_FARMDIR if you want to use farms
 //include(fullpath(dirname(__FILE__)).'/farm.php');

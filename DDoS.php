@@ -1,6 +1,6 @@
 <?php
 
-require '/var/www/classes/Session.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Session.class.php';
 $session = new Session();
 
 $error = '';
@@ -22,7 +22,7 @@ if(!isset($_POST['ip']) || empty($_POST['ip'])){
     $error = 'Invalid IP address.';
 }
 
-require '/var/www/classes/System.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/System.class.php';
 $system = new System();
 
 if(!$system->validate($_POST['ip'], 'ip')){
@@ -32,9 +32,9 @@ if(!$system->validate($_POST['ip'], 'ip')){
 
 if($error == ''){
     
-    require '/var/www/classes/Player.class.php';
-    require '/var/www/classes/PC.class.php';
-    require '/var/www/classes/List.class.php';
+    require $_SERVER['DOCUMENT_ROOT'].'/classes/Player.class.php';
+    require $_SERVER['DOCUMENT_ROOT'].'/classes/PC.class.php';
+    require $_SERVER['DOCUMENT_ROOT'].'/classes/List.class.php';
     
     $virus = new Virus();
     $player = new Player();

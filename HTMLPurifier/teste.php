@@ -1,5 +1,5 @@
 <?php
 
-require '/var/www/classes/'
+require $_SERVER['DOCUMENT_ROOT'].'/classes/'
 
 ?>

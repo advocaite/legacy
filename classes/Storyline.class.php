@@ -1,7 +1,7 @@
 <?php
 
-require_once '/var/www/classes/System.class.php';
-require_once '/var/www/classes/Session.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/classes/System.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Session.class.php';
 
 class Storyline {
     
@@ -137,7 +137,7 @@ class Storyline {
                     VALUES ('".$ip."', '".$reason."', NOW(), DATE_ADD(NOW(), INTERVAL '".$addTime."' SECOND), 1, 0)";
             $this->pdo->query($sql);
             
-            require_once '/var/www/classes/Mail.class.php';
+            require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Mail.class.php';
 
             $mail = new Mail();
             $mail->newMail($_SESSION['id'], _('Safenet is tracking you.'), $text, '1', -3);            
@@ -293,7 +293,7 @@ class Storyline {
         $sql = "UPDATE fbi SET dateEnd = DATE_ADD(dateEnd, INTERVAL '".$addTime."' SECOND), bounty = bounty + '".$bounty."' WHERE ip = '".$ip."' AND reason = '".$reason."'";
         $this->pdo->query($sql);
         
-        require_once '/var/www/classes/Mail.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Mail.class.php';
 
         $mail = new Mail();
         $mail->newMail($_SESSION['id'], _('Bounty increased.'), _('Your bounty has increased. We want you so bad.'), '2', -2);
@@ -402,7 +402,7 @@ class Storyline {
                     VALUES ('".$ip."', '".$reason."', '".$bounty."', NOW(), DATE_ADD(NOW(), INTERVAL '".$duration."' SECOND))";
             $this->pdo->query($sql);
         
-            require_once '/var/www/classes/Mail.class.php';
+            require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Mail.class.php';
 
             $mail = new Mail();
             $mail->newMail($_SESSION['id'], _('FBI suspect'), _('Hey bitch, FBI is now looking for you. Take care and expect attacks.'), '1', -2);            
@@ -746,7 +746,7 @@ class Storyline {
     
     public function doom_showFailed(){
         
-        require '/var/www/classes/Clan.class.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/classes/Clan.class.php';
         
         $player = new Player();
         $clan = new Clan();
@@ -846,7 +846,7 @@ class Storyline {
             </div>
 <?php
 
-        require '/var/www/classes/Clan.class.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/classes/Clan.class.php';
         
         $player = new Player();
         $clan = new Clan();
@@ -1041,8 +1041,8 @@ class Storyline {
     
     public function tutorial_start(){
         
-        require '/var/www/classes/Mission.class.php';
-        require '/var/www/classes/Mail.class.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/classes/Mission.class.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/classes/Mail.class.php';
         
         $player = new Player();
         $mission = new Mission();

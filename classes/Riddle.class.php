@@ -454,7 +454,7 @@ if($this->puzzleInfo->credit){
         }
         
         if(!isset($this->puzzleID)){
-            require_once '/var/www/classes/Player.class.php';
+            require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Player.class.php';
             $player = new Player();
 
             $npcInfo = $player->getIDByIP($npcIP, 'NPC');
@@ -497,7 +497,7 @@ if($this->puzzleInfo->credit){
     
     public function alreadySolvedRiddle($npcIP){
         
-        require_once '/var/www/classes/Player.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Player.class.php';
         $player = new Player();
         
         $npcInfo = $player->getIDByIP($npcIP, 'NPC');
@@ -726,7 +726,7 @@ if($this->puzzleInfo->credit){
                 $create = TRUE;
             }
             
-            require_once '/var/www/classes/System.class.php';
+            require_once $_SERVER['DOCUMENT_ROOT'].'/classes/System.class.php';
             $system = new System();
             
             if(!$system->validate($_COOKIE['PUZZLE_HINT']['IP'], 'hintip')){

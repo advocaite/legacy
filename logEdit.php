@@ -1,11 +1,11 @@
 <?php
 
 require 'config.php';
-require_once '/var/www/classes/System.class.php';
-require '/var/www/classes/Session.class.php';
-require '/var/www/classes/Player.class.php';
-require '/var/www/classes/PC.class.php';
-require '/var/www/classes/Process.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/classes/System.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Session.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Player.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/PC.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Process.class.php';
 
 $session = new Session();
 
@@ -77,7 +77,7 @@ if($session->issetLogin()){
                 $act = 'E_LOG';
                 $tmpLogID = '';
                 
-                require '/var/www/classes/Purifier.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/Purifier.class.php';
                 $purifier = new Purifier();
                 $purifier->set_config('text');
                 

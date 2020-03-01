@@ -1,6 +1,6 @@
 <?php
 
-require_once '/var/www/classes/Player.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Player.class.php';
 
 class Social {
 
@@ -44,7 +44,7 @@ class Social {
         }
         
         $generate = FALSE;
-        if(file_exists('/var/www/html/profile/'.$id.'_'.$l.'.html')){
+        if(file_exists($_SERVER['DOCUMENT_ROOT'].'/html/profile/'.$id.'_'.$l.'.html')){
             
             if(!self::isProfileValid()){
                 $generate = TRUE;
@@ -56,7 +56,7 @@ class Social {
 
         if($generate){
 
-            require '/var/www/classes/Python.class.php';
+            require $_SERVER['DOCUMENT_ROOT'].'/classes/Python.class.php';
             $python = new Python();
 
             $python->generateProfile($id, $l);
@@ -233,7 +233,7 @@ var uid = <?php echo $this->profileID; ?>;
 
     public function badge_add($badgeID, $user, $clan = ''){
 
-        require_once '/var/www/classes/Python.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Python.class.php';
         $python = new Python();
 
         $python->add_badge($user, $badgeID, $clan);
@@ -352,8 +352,8 @@ var uid = <?php echo $this->profileID; ?>;
     
     public function friend_display($friendInfo){
         
-        require_once '/var/www/classes/Clan.class.php';
-        require_once '/var/www/classes/Ranking.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Clan.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Ranking.class.php';
         
         $this->clan = new Clan();
         $this->ranking = new Ranking();
@@ -457,7 +457,7 @@ if($clanDisplay){
         
         $requestID = $this->pdo->lastInsertID();
         
-        require_once '/var/www/classes/Mail.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Mail.class.php';
         
         $mail = new Mail();
         
@@ -511,24 +511,24 @@ if($clanDisplay){
         $social = FALSE;
         
         if($myFriends == 10){
-            require '/var/www/classes/Social.class.php';
+            require $_SERVER['DOCUMENT_ROOT'].'/classes/Social.class.php';
             $social = new Social();
             $social->badge_add(48, $_SESSION['id']);
         } elseif($myFriends == 50){
-            require '/var/www/classes/Social.class.php';
+            require $_SERVER['DOCUMENT_ROOT'].'/classes/Social.class.php';
             $social = new Social();
             $social->badge_add(49, $_SESSION['id']);
         }
         
         if($hisFriends == 10){
             if(!$social){
-                require '/var/www/classes/Social.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/Social.class.php';
                 $social = new Social();
             }
             $social->badge_add(48, $friendID);
         } elseif($hisFriends == 50){
             if(!$social){
-                require_once '/var/www/classes/Social.class.php';
+                require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Social.class.php';
                 $social = new Social();
             }
             $social->badge_add(49, $friendID);

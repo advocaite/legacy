@@ -1,6 +1,6 @@
 <?php
 
-require '/var/www/classes/Storyline.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Storyline.class.php';
 
 class Fame {
     
@@ -188,7 +188,7 @@ require $require;
 
             $page .= 'round='.$roundGet.'&page';
             
-            require_once '/var/www/classes/Pagination.class.php';
+            require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Pagination.class.php';
             $pagination = new Pagination();
 
             $pagination->paginate($top, 'fame', 50, $page, 1);

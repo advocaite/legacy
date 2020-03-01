@@ -106,7 +106,7 @@ if(isset($_POST['ttuser']) || isset($_POST['predefined'])){
         
         if(!$error){
 
-            require '/var/www/classes/Python.class.php';
+            require $_SERVER['DOCUMENT_ROOT'].'/classes/Python.class.php';
             $python = new Python();
 
             $gameIP1 = rand(0, 255);
@@ -118,7 +118,7 @@ if(isset($_POST['ttuser']) || isset($_POST['predefined'])){
 
             $python->createUser($name, 0, 0, $gameIP, $userID, 'twitter');
             
-            require '/var/www/classes/Forum.class.php';
+            require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
             $forum = new Forum();
             
             $sql = 'SELECT COUNT(*) AS total, id FROM users WHERE login = \''.$name.'\' LIMIT 1';
@@ -126,7 +126,7 @@ if(isset($_POST['ttuser']) || isset($_POST['predefined'])){
 
             if($regInfo->total == 1){
 
-                require '/var/www/classes/Finances.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/Finances.class.php';
                 $finances = new Finances();
 
                 $finances->createAccount($regInfo->id);

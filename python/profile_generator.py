@@ -37,7 +37,7 @@ def install_gettext(lang):
 
 	trans.install(unicode=True)
 
-json_data = open('/var/www/json/badges.json').read()
+json_data = open($_SERVER['DOCUMENT_ROOT'].'/json/badges.json').read()
 badgeList = json.loads(json_data)
 
 def getBadgeInfo(badgeID):
@@ -48,7 +48,7 @@ def getBadgeInfo(badgeID):
 
 def save(html, userID, lang):
 
-	f = open('/var/www/html/profile/'+userID+'_'+lang+'.html', 'w')
+	f = open($_SERVER['DOCUMENT_ROOT'].'/html/profile/'+userID+'_'+lang+'.html', 'w')
 	f.write(html.encode("UTF-8"))
 	f.close()
 
@@ -211,7 +211,7 @@ for login, premium, clanID, clanName, clanTag, clanOwner, ranking, gameAge, repu
 				friendReputation = 0
 
 			friendPic = 'images/profile/thumbnail/'+str(hashlib.md5(str(friendName+friendID)).hexdigest())+'.jpg'
-			if not os.path.isfile('/var/www/'+friendPic):
+			if not os.path.isfile($_SERVER['DOCUMENT_ROOT'].'/'+friendPic):
 				friendPic = 'images/profile/thumbnail/unsub.jpg'
 
 			friendsHTML += '\n\
@@ -285,7 +285,7 @@ for login, premium, clanID, clanName, clanTag, clanOwner, ranking, gameAge, repu
 		staffBadge = '<span class="label label-important">'+__('Staff')+'</span>'
 
 	pic = 'images/profile/'+str(hashlib.md5(login+userID).hexdigest())+'.jpg'
-	if not os.path.isfile('/var/www/'+pic):
+	if not os.path.isfile($_SERVER['DOCUMENT_ROOT'].'/'+pic):
 		pic = 'images/profile/unsub.jpg'
 
 	html = '\n\

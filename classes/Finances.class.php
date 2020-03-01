@@ -454,7 +454,7 @@ class Finances {
     
     public function transferMoney($from, $to, $amount, $bankFrom, $bankTo, $userTo, $userIP){
 
-        require '/var/www/classes/Storyline.class.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/classes/Storyline.class.php';
         $storyline = new Storyline();
         
         $storyline->safenet_monitorTransfers($amount, $userIP);
@@ -473,7 +473,7 @@ class Finances {
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute(array(':newAmount' => $newAmount, ':to' => $to, ':bankTo' => $bankTo));
         
-        require_once '/var/www/classes/Ranking.class.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Ranking.class.php';
         $ranking = new Ranking();
 
         $ranking->updateMoneyStats('3', $newAmount, $userTo);
@@ -714,7 +714,7 @@ class Finances {
 
         if($totalAccs > '0'){
 
-            require '/var/www/classes/NPC.class.php';
+            require $_SERVER['DOCUMENT_ROOT'].'/classes/NPC.class.php';
             $npc = new NPC();
             
             $firstEmptyDiv = 0;

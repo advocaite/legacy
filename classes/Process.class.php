@@ -2,14 +2,14 @@
 
 // 2019: This is the most complex part of Legacy and HE2.
 
-require_once '/var/www/classes/Session.class.php';
-require_once '/var/www/classes/Player.class.php';
-require_once '/var/www/classes/PC.class.php';
-require_once '/var/www/classes/System.class.php';
-require_once '/var/www/classes/NPC.class.php';
-require_once '/var/www/classes/List.class.php';
-require_once '/var/www/classes/Finances.class.php';
-require_once '/var/www/classes/Ranking.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Session.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Player.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/classes/PC.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/classes/System.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/classes/NPC.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/classes/List.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Finances.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Ranking.class.php';
 
 class Process {
 
@@ -1855,7 +1855,7 @@ if($this->pAction == 27){ $replace = TRUE; $newTime = 300 - $pInfo[$i]['pduratio
         
         $playerInfo = $this->player->getPlayerInfo($this->pCreatorID);
 
-        require_once '/var/www/classes/Mission.class.php'; 
+        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Mission.class.php';
 
         $this->mission = new Mission();
         
@@ -1901,7 +1901,7 @@ if($this->pAction == 27){ $replace = TRUE; $newTime = 300 - $pInfo[$i]['pduratio
                                     
                                     if($valid){
                                     
-                                        require_once '/var/www/classes/Mission.class.php';
+                                        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Mission.class.php';
                                         $mission = new Mission();                                    
 
                                         if($this->session->issetMissionSession()){
@@ -1918,7 +1918,7 @@ if($this->pAction == 27){ $replace = TRUE; $newTime = 300 - $pInfo[$i]['pduratio
                                 
                                 if($softInfo->softtype == 29){
 
-                                    require_once '/var/www/classes/Mission.class.php';
+                                    require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Mission.class.php';
                                     $mission = new Mission();                                    
                                     
                                     if($this->session->issetMissionSession()){
@@ -2022,7 +2022,7 @@ if($this->pAction == 27){ $replace = TRUE; $newTime = 300 - $pInfo[$i]['pduratio
                                     
                                     if($softInfo->softtype == 1 && $softInfo->softversion >= 9200 && $this->pNPC == 0){
                                     
-                                        require_once '/var/www/classes/Mission.class.php';
+                                        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Mission.class.php';
                                         $mission = new Mission();                                    
 
                                         
@@ -2043,7 +2043,7 @@ if($this->pAction == 27){ $replace = TRUE; $newTime = 300 - $pInfo[$i]['pduratio
                                         
                                         if($this->pNPC == 0){ //upando em um VPC
                                         
-                                            require_once '/var/www/classes/Mission.class.php';
+                                            require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Mission.class.php';
                                             $mission = new Mission();                                             
                                             
                                             if($mission->playerOnMission($this->pVictimID)){
@@ -2066,7 +2066,7 @@ if($this->pAction == 27){ $replace = TRUE; $newTime = 300 - $pInfo[$i]['pduratio
                                                     
                                                     if($this->mission->issetMission($_SESSION['MISSION_ID'])){
 
-                                                        require '/var/www/classes/Clan.class.php';
+                                                        require $_SERVER['DOCUMENT_ROOT'].'/classes/Clan.class.php';
                                                         $clan = new Clan();
 
                                                         if($clan->playerHaveClan()){
@@ -2203,7 +2203,7 @@ if($this->pAction == 27){ $replace = TRUE; $newTime = 300 - $pInfo[$i]['pduratio
                                 $uid = $this->pVictimID;
                                 $npc = $this->pNPC;
                                 
-                                require_once '/var/www/classes/Storyline.class.php';
+                                require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Storyline.class.php';
                                 $storyline = new Storyline();
   
                                 $odds = (5 + (($softInfo->softversion)/10))*10;
@@ -2314,7 +2314,7 @@ if($this->pAction == 27){ $replace = TRUE; $newTime = 300 - $pInfo[$i]['pduratio
                                 
                                 if($softInfo->softtype == 18){
 
-                                    require_once '/var/www/classes/Internet.class.php';
+                                    require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Internet.class.php';
                                     $internet = new Internet();
                                     
                                     $internet->webserver_shutdown($uid);
@@ -2942,7 +2942,7 @@ if($this->pAction == 27){ $replace = TRUE; $newTime = 300 - $pInfo[$i]['pduratio
                                     
                                     if($softInfo->softtype == 18){
                                         
-                                        require_once '/var/www/classes/Internet.class.php';
+                                        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Internet.class.php';
                                         $internet = new Internet();
                                         
                                         $internet->webserver_shutdown($id);
@@ -3787,7 +3787,7 @@ if($this->pAction == 27){ $replace = TRUE; $newTime = 300 - $pInfo[$i]['pduratio
                     break;
                 case '28': //edit webserver
                     
-                    require '/var/www/classes/Internet.class.php';
+                    require $_SERVER['DOCUMENT_ROOT'].'/classes/Internet.class.php';
                     $internet = new Internet();
                     
                     if($this->pVictimID == 0){

@@ -1,6 +1,6 @@
 <?php
 
-require '/var/www/classes/PDO.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/PDO.class.php';
 
 class Session {
 

@@ -1,8 +1,8 @@
 <?php
 
 require 'config.php';
-require '/var/www/classes/Session.class.php';
-require '/var/www/classes/System.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Session.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/System.class.php';
 
 
 
@@ -11,7 +11,7 @@ $loadFacebook = FALSE;
 $loadTwitter = FALSE;
 $remembered = FALSE;
 
-require '/var/www/classes/Facebook.class.php';
+require $_SERVER['DOCUMENT_ROOT'].'/classes/Facebook.class.php';
 
 if(isset($_COOKIE['PHPSESSID'])){
     $session = new Session();
@@ -94,7 +94,7 @@ if(!isset($_SESSION['id'])){
                 $_SESSION['SPECIAL_ID'] = 'fb';
             } else {
 
-                require '/var/www/classes/Database.class.php';
+                require $_SERVER['DOCUMENT_ROOT'].'/classes/Database.class.php';
                 $database = new LRSys();
                 
                 $database->login($fbInfo->login, '0', 'facebook');
@@ -172,7 +172,7 @@ if(!isset($_SESSION['id'])){
             $_SESSION['SPECIAL_ID'] = 'tt';
         } else {
             
-            require '/var/www/classes/Database.class.php';
+            require $_SERVER['DOCUMENT_ROOT'].'/classes/Database.class.php';
             $database = new LRSys();
 
             $database->login($ttInfo->login, '0', 'twitter');
@@ -187,7 +187,7 @@ if(!isset($_SESSION['id'])){
         
         // 2019: User is not doing any type of social login, so I'll check if it's logged in the database (remember me feature)
         //não está fazendo nenhum tipo de social login, vou verificar se está logado no banco (remember me)
-        require '/var/www/classes/RememberMe.class.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/classes/RememberMe.class.php';
         
         $key = pack("H*", 'REDACTED');
         
@@ -215,7 +215,7 @@ if($loadFacebook){
     
     $session = new Session();
     
-    if(!$remembered) require_once '/var/www/classes/Player.class.php';
+    if(!$remembered) require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Player.class.php';
     $player = new Player($_SESSION['id']);
 
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST)){
