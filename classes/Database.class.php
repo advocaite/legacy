@@ -76,8 +76,8 @@ class LRSys {
 
             $gameIP = $gameIP1 . '.' . $gameIP2 . '.' . $gameIP3 . '.' . $gameIP4;
 
-            require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
-            $forum = new Forum();
+           // require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
+          //  $forum = new Forum();
 
             require $_SERVER['DOCUMENT_ROOT'].'/classes/Python.class.php';
             
