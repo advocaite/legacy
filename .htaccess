@@ -2,11 +2,3 @@ RewriteEngine on
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteRule ^([^/]+)/?$ $1.php [L]
-
-<FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf|js|css|pdf)$">
-
-
-	Header set Cache-Control "max-age=28800"
-
-
-</FilesMatch>
