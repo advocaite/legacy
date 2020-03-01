@@ -321,7 +321,7 @@ def createRankDDoS():
 
 import MySQLdb
 
-db = MySQLdb.connect(host="localhost",user="he",passwd="REDADCTED",db="game")
+db = MySQLdb.connect(host="localhost",user="he",passwd="hegame123",db="game")
 cur = db.cursor()
 
 createRankUsers()
