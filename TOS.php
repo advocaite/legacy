@@ -1,5 +1,7 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 // 2019: If you host your own public game server, please update the Privacy Policy and TOS accordingly.
 
 $l = 'en_US';
