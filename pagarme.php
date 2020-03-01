@@ -21,7 +21,7 @@ if(!isset($_POST['id']) || !isset($_POST['fingerprint'])){
 }
 
 require 'pagarme-php/Pagarme.php';
-Pagarme::setApiKey("REDACTED");
+Pagarme::setApiKey("hegame123");
 
 $premium->debug();
 

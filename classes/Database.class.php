@@ -108,7 +108,7 @@ class LRSys {
             
             $finances->createAccount($regInfo->id);
 
-            $forum->externalRegister($this->user, $this->pass, $this->email, $regInfo->id);
+            //$forum->externalRegister($this->user, $this->pass, $this->email, $regInfo->id);
             
             $sql = "INSERT INTO stats_register (userID, ip) VALUES ('".$regInfo->id."', '".$_SERVER['REMOTE_ADDR']."')";
             $this->pdo->query($sql);
@@ -273,10 +273,10 @@ class LRSys {
                         $premium = 0;
                     }
 
-                    require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
-                    $forum = new Forum();
+                    //require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
+                    //$forum = new Forum();
 
-                    $forum->login($this->user, $this->pass, TRUE);
+                    //$forum->login($this->user, $this->pass, TRUE);
                     
                     $this->session->loginSession($dados['0']['id'], $this->user, $premium, $special);
 
@@ -331,7 +331,7 @@ class LRSys {
         }
         
         require_once $_SERVER['DOCUMENT_ROOT'].'/classes/RememberMe.class.php';
-        $key = pack("H*", 'REDACTED');
+        $key = pack("H*", 'hegame123');
         $rememberMe = new RememberMe($key, $this->pdo);
         $rememberMe->remember($id, false, $this->keepalive);
                 

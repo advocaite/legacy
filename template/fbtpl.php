@@ -42,15 +42,15 @@ if(isset($_SERVER['HTTP_HOST'])){
 switch($fbServerURL){
     case 'http://hackerexperience.com/':
         $appID = 0;
-        $appSecret = 'REDACTED';
+        $appSecret = 'hegame123';
         break;
     case 'http://br.hackerexperience.com/':
         $appID = 0;
-        $appSecret = 'REDACTED';
+        $appSecret = 'hegame123';
         break;
     case 'http://en.hackerexperience.com/':
         $appID = 0;
-        $appSecret = 'REDACTED';
+        $appSecret = 'hegame123';
         break;
 }
 
@@ -157,8 +157,8 @@ if(isset($_POST['fbuser']) || isset($_POST['predefined'])){
 
                 $python->createUser($name, 0, $email, $gameIP, $user, 'facebook');
                 
-                require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
-                $forum = new Forum();                
+               //require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
+               // $forum = new Forum();
                 
                 $sql = 'SELECT COUNT(*) AS total, id FROM users WHERE login = \''.$name.'\' LIMIT 1';
                 $regInfo = $pdo->query($sql)->fetch(PDO::FETCH_OBJ);
@@ -168,7 +168,7 @@ if(isset($_POST['fbuser']) || isset($_POST['predefined'])){
                     require $_SERVER['DOCUMENT_ROOT'].'/classes/Finances.class.php';
                     $finances = new Finances();
 
-                    $forum->externalRegister($name, 'special_fb', 'facebook_login', $regInfo->id);
+                    //$forum->externalRegister($name, 'special_fb', 'facebook_login', $regInfo->id);
                     
                     $finances->createAccount($regInfo->id);                    
                     

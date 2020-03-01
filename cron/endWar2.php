@@ -230,7 +230,7 @@ if($total > 0){
                 $sqlMail = $pdo->prepare($sql);
                 $sqlMail->execute(array($from, $to, $type, $subject, $text));
                 
-                exec('/usr/bin/env python /var/www/python/badge_add.py user '.$to.' 60');
+                exec('/usr/bin/python /var/www/worldofhackers.eu/python/badge_add.py user '.$to.' 60');
                 
             }
             
@@ -239,8 +239,8 @@ if($total > 0){
         $sql = "DELETE FROM clan_ddos WHERE (attackerClan = '".$winnerID."' AND victimClan = '".$loserID."') OR (attackerClan = '".$loserID."' AND victimClan = '".$winnerID."')";
         $pdo->query($sql);
         
-        exec('/usr/bin/env python /var/www/python/badge_add.py user '.$mostInfluentID.' 61');
-        exec('/usr/bin/env python /var/www/python/badge_add.py user '.$mostInfluentID.' 71');
+        exec('/usr/bin/python /var/www/worldofhackers.eu/python/badge_add.py user '.$mostInfluentID.' 61');
+        exec('/usr/bin/python /var/www/worldofhackers.eu/python/badge_add.py user '.$mostInfluentID.' 71');
         
     }
     

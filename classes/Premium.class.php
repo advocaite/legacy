@@ -112,7 +112,7 @@ class Premium {
         
         require 'pagarme-php/Pagarme.php';
 
-        Pagarme::setApiKey("REDACTED"); // Insira sua chave de API 
+        Pagarme::setApiKey("hegame123"); // Insira sua chave de API
         
         $value = round($this->planInfo['price']*self::exchange_rate('USD', 'BRL', 1)*100);
 

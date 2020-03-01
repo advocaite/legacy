@@ -2,7 +2,7 @@
 
 $dsn = 'mysql:host=localhost;port=3306;dbname=game';
 $dbUser = 'he';
-$dbPass = 'REDACTED';
+$dbPass = 'hegame123';
 $dbOptions = array(
     PDO::ATTR_PERSISTENT => true,
     PDO::ATTR_CASE => PDO::CASE_LOWER
@@ -61,7 +61,7 @@ if($output == NULL){
 $custom = 8;
 $sign = 'renatooo';
 $status = 'Denied';
-$output = '1348944187	{"address_city":"San Jose","address_country":"United States","address_country_code":"US","address_name":"John Smith","address_state":"CA","address_status":"confirmed","address_street":"123, any street","address_zip":"95131","business":"seller@paypalsandbox.com","charset":"utf-8","charset_original":"windows-1252","custom":"xyz123","first_name":"John","item_name":"something","item_number":"AK-1234","last_name":"Smith","mc_currency":"USD","mc_fee":"0.44","mc_gross":"12.34","mc_gross_1":"9.34","notify_version":"2.1","payer_email":"buyer@paypalsandbox.com","payer_id":"TESTBUYERID01","payer_status":"verified","payment_date":"11:40:28 Sep 29, 2012 PDT","payment_status":"Completed","payment_type":"instant","quantity":"1","receiver_email":"seller@paypalsandbox.com","receiver_id":"TESTSELLERID1","residence_country":"US","shipping":"3.04","tax":"2.02","test_ipn":"1","txn_id":"289291840","txn_type":"web_accept","verify_sign":"REDACTED"}';
+$output = '1348944187	{"address_city":"San Jose","address_country":"United States","address_country_code":"US","address_name":"John Smith","address_state":"CA","address_status":"confirmed","address_street":"123, any street","address_zip":"95131","business":"seller@paypalsandbox.com","charset":"utf-8","charset_original":"windows-1252","custom":"xyz123","first_name":"John","item_name":"something","item_number":"AK-1234","last_name":"Smith","mc_currency":"USD","mc_fee":"0.44","mc_gross":"12.34","mc_gross_1":"9.34","notify_version":"2.1","payer_email":"buyer@paypalsandbox.com","payer_id":"TESTBUYERID01","payer_status":"verified","payment_date":"11:40:28 Sep 29, 2012 PDT","payment_status":"Completed","payment_type":"instant","quantity":"1","receiver_email":"seller@paypalsandbox.com","receiver_id":"TESTSELLERID1","residence_country":"US","shipping":"3.04","tax":"2.02","test_ipn":"1","txn_id":"289291840","txn_type":"web_accept","verify_sign":"hegame123"}';
 
 
 $login = 'napster';    

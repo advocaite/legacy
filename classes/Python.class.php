@@ -11,7 +11,7 @@ class Python {
     
     function __construct(){
         
-        $this->python_path = '/usr/bin/env python';
+        $this->python_path = '/usr/bin/python';
         $this->game_path = $_SERVER['DOCUMENT_ROOT'].'/';
         $this->args = '';
         $this->log = ' 2>&1 /var/log/game/python.log';

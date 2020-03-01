@@ -33,15 +33,15 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Facebook.class.php';
 switch($fbServerURL){
     case 'http://hackerexperience.com/':
         $appID = 0;
-        $appSecret = 'REDACTED';
+        $appSecret = 'hegame123';
         break;
     case 'http://br.hackerexperience.com/':
         $appID = 0;
-        $appSecret = 'REDACTED';
+        $appSecret = 'hegame123';
         break;
     case 'http://en.hackerexperience.com/':
         $appID = 0;
-        $appSecret = 'REDACTED';
+        $appSecret = 'hegame123';
         break;
 }
 
@@ -57,7 +57,7 @@ $facebookURL = $facebook->getLoginUrl(Array(
     'redirect_uri' => $fbServerURL
 ));
 
-$twitteroauth = new TwitterOAuth('REDACTED', 'REDACTED');
+$twitteroauth = new TwitterOAuth('hegame123', 'hegame123');
 $twitteroauth->host = "https://api.twitter.com/1.1/";
 
 //if($_SERVER['HTTP_HOST'] == 'www.hackerexperience.com' || $_SERVER['HTTP_HOST'] == 'hackerexperience.com'){

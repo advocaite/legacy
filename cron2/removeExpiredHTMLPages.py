@@ -4,7 +4,7 @@ import time
 
 start_time = time.time()
 
-db = MySQLdb.connect(host="localhost",user="he",passwd="REDACTED",db="game")
+db = MySQLdb.connect(host="localhost",user="he",passwd="hegame123",db="game")
 cur = db.cursor()
 
 #Remove /html/profile/id.html pages

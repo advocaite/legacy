@@ -10,7 +10,7 @@ $forum = new Forum();
 
 $ranking->updateTimePlayed();
 
-$forum->logout();
+//$forum->logout();
 
 
 $session->logout();
@@ -22,8 +22,8 @@ if($session->issetFBLogin()){
     require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Facebook.class.php';
 
     $facebook = new Facebook(array(
-        'appId' => 'REDACTED',
-        'secret' => 'REDACTED'
+        'appId' => 'hegame123',
+        'secret' => 'hegame123'
     ));
 
     $facebook->destroySession();

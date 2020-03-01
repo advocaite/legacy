@@ -26,7 +26,7 @@ def prepare():
 		badge_table = 'clan_badge'
 		field = 'clanID'
 
-	db = MySQLdb.connect(host="localhost",user="he",passwd="REDACTED",db="game",charset="utf8",init_command="set names utf8")
+	db = MySQLdb.connect(host="localhost",user="he",passwd="hegame123",db="game",charset="utf8",init_command="set names utf8")
 	cur = db.cursor()
 
 	json_data = open($_SERVER['DOCUMENT_ROOT'].'/json/badges.json').read()
@@ -208,11 +208,11 @@ def badge_add():
 				else:
 					text += _('You now have a total of <strong>%s</strong> badges.') % str(myBadges)
 					if myBadges == 30:
-						os.system('python /var/www/python/badge_add.py user '+str(userID)+' 50')
+						os.system('python /var/www/worldofhackers.eu/python/badge_add.py user '+str(userID)+' 50')
 
 				mail(subject.encode('utf-8').decode('cp1252'), text.encode('utf-8').decode('cp1252'))
 
-			os.system('python /var/www/python/profile_generator.py '+str(userID)+' '+get_lang(userID))
+			os.system('python /var/www/worldofhackers.eu/python/profile_generator.py '+str(userID)+' '+get_lang(userID))
 
 		db.commit()
 

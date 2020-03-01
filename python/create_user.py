@@ -22,7 +22,7 @@ cur = False
 
 try:
 
-	db = MySQLdb.connect(host="localhost",user="he",passwd="REDACTED",db="game")
+	db = MySQLdb.connect(host="localhost",user="he",passwd="hegame123",db="game")
 	cur = db.cursor()
 
 	cur.execute("	INSERT INTO users \
@@ -120,6 +120,6 @@ finally:
 	if cur:
 		db.close()
 
-		os.system('python /var/www/python/profile_generator.py '+str(userID))
-		os.system('python /var/www/python/profile_generator.py '+str(userID)+' br')
+		os.system('python /var/www/worldofhackers.eu/python/profile_generator.py '+str(userID))
+		os.system('python /var/www/worldofhackers.eu/python/profile_generator.py '+str(userID)+' br')
 

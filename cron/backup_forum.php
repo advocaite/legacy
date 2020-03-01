@@ -9,7 +9,7 @@ $name = date('Ymd-Hi').'_forum';
 //ENTER THE RELEVANT INFO BELOW
 $mysqlDatabaseName ='forum';
 $mysqlUserName ='forum';
-$mysqlPassword ='REDACTED';
+$mysqlPassword ='hegame123';
 $mysqlHostName ='localhost';
 $mysqlExportPath ='/var/web/backup/forum/'.$name.'.sql';
 
@@ -19,12 +19,12 @@ $command='/usr/local/mysql/bin/mysqldump --opt -h' .$mysqlHostName .' -u' .$mysq
 exec($command);
 
 $client = S3Client::factory(array(
-    'key'    => 'REDACTED',
-    'secret' => 'REDACTED'
+    'key'    => 'hegame123',
+    'secret' => 'hegame123'
 ));
 
 $result = $client->putObject(array(
-    'Bucket'     => 'REDACTED',
+    'Bucket'     => 'hegame123',
     'Key'    => '/'.date('Y').'/'.date('m').'/'.date('d').'/'.date('Ymd-Hi').'_forum',
     'SourceFile' => '/var/web/backup/forum/'.$name.'.sql'
 ));

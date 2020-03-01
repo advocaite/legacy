@@ -3,7 +3,7 @@
 
 $dsn = 'mysql:host=localhost;port=3306;dbname=game';
 $dbUser = 'he';
-$dbPass = 'REDACTED';
+$dbPass = 'hegame123';
 $dbOptions = array(
     PDO::ATTR_PERSISTENT => true,
     PDO::ATTR_CASE => PDO::CASE_LOWER

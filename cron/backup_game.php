@@ -9,7 +9,7 @@ $name = date('Ymd-Hi').'_game';
 //ENTER THE RELEVANT INFO BELOW
 $mysqlDatabaseName ='game';
 $mysqlUserName ='he';
-$mysqlPassword ='REDACTED';
+$mysqlPassword ='hegame123';
 $mysqlHostName ='localhost';
 $mysqlExportPath ='/var/web/backup/game/'.$name.'.sql';
 
@@ -22,12 +22,12 @@ exec($command);
 $h = date('H');
 
     $client = S3Client::factory(array(
-        'key'    => 'REDACTED',
-        'secret' => 'REDACTED'
+        'key'    => 'hegame123',
+        'secret' => 'hegame123'
     ));
 
     $result = $client->putObject(array(
-        'Bucket'     => 'REDACTED',
+        'Bucket'     => 'hegame123',
         'Key'    => '/'.date('Y').'/'.date('m').'/'.date('d').'/'.date('Ymd-Hi').'_game',
         'SourceFile' => '/var/web/backup/game/'.$name.'.sql'
     ));

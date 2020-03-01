@@ -16,7 +16,7 @@ The closest I have to a documentation can be found at the `info/` folder. Keep i
 
 ## Redactions and comments
 
-This is the exact same code that powered Legacy, except for a few hard-coded passwords and API keys that were replaced with the `REDACTED` strings. I also removed images.
+This is the exact same code that powered Legacy, except for a few hard-coded passwords and API keys that were replaced with the `hegame123` strings. I also removed images.
 
 I did a quick code-review and added some comments that might help you understand the code. I also added translations to comments in Portuguese (except for the ones I had no idea what I wrote originally). All my comments are prefixed with `2019: `.
 
@@ -26,7 +26,7 @@ Legacy uses PHP 5 and MySQL, alongside some Python 2 scripts running on cron job
 
 If you have questions and/or need help setting it up or understanding its code, please open an issue. Your question may be someone else's, so do not hesitate asking it. I can't guarantee fast responses, but I'll try to help you as soon as possible.
 
-Make sure to scan the code for the words `REDACTED` and `2019`. `REDACTED` will contain placeholders for API keys and passwords that you might want to change. `2019` may contain useful comments.
+Make sure to scan the code for the words `hegame123` and `2019`. `hegame123` will contain placeholders for API keys and passwords that you might want to change. `2019` may contain useful comments.
 
 ## License
 

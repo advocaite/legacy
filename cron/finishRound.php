@@ -378,47 +378,47 @@ $pdo->query('DELETE FROM virus');
 $pdo->query('DELETE FROM virus_ddos');
 $pdo->query('DELETE FROM virus_doom');
 
-exec('/usr/bin/env python /var/www/python/fame_generator.py '.$curRound.' preview');
-exec('/usr/bin/env python /var/www/python/fame_generator.py '.$curRound);
-exec('/usr/bin/env python /var/www/python/fame_generator_alltime.py');
-exec('/usr/bin/env python /var/www/python/fame_generator_alltime.py preview');
+exec('/usr/bin/python /var/www/worldofhackers.eu/python/fame_generator.py '.$curRound.' preview');
+exec('/usr/bin/python /var/www/worldofhackers.eu/python/fame_generator.py '.$curRound);
+exec('/usr/bin/python /var/www/worldofhackers.eu/python/fame_generator_alltime.py');
+exec('/usr/bin/python /var/www/worldofhackers.eu/python/fame_generator_alltime.py preview');
 
 //badges
 
 //doomer badges
-exec('/usr/bin/env python /var/www/python/badge_add.py user '.$dommerID.' 14');
-exec('/usr/bin/env python /var/www/python/badge_add.py user '.$dommerID.' 71');
+exec('/usr/bin/python /var/www/worldofhackers.eu/python/badge_add.py user '.$dommerID.' 14');
+exec('/usr/bin/python /var/www/worldofhackers.eu/python/badge_add.py user '.$dommerID.' 71');
 
 //bests
-exec('/usr/bin/env python /var/www/python/badge_add.py user '.$best['user'][1].' 7');
-exec('/usr/bin/env python /var/www/python/badge_add.py user '.$best['user'][2].' 8');
-exec('/usr/bin/env python /var/www/python/badge_add.py user '.$best['user'][3].' 9');
+exec('/usr/bin/python /var/www/worldofhackers.eu/python/badge_add.py user '.$best['user'][1].' 7');
+exec('/usr/bin/python /var/www/worldofhackers.eu/python/badge_add.py user '.$best['user'][2].' 8');
+exec('/usr/bin/python /var/www/worldofhackers.eu/python/badge_add.py user '.$best['user'][3].' 9');
 
-exec('/usr/bin/env python /var/www/python/badge_add.py user '.$best['soft'][1].' 72');
-exec('/usr/bin/env python /var/www/python/badge_add.py user '.$best['soft'][2].' 73');
-exec('/usr/bin/env python /var/www/python/badge_add.py user '.$best['soft'][3].' 74');
+exec('/usr/bin/python /var/www/worldofhackers.eu/python/badge_add.py user '.$best['soft'][1].' 72');
+exec('/usr/bin/python /var/www/worldofhackers.eu/python/badge_add.py user '.$best['soft'][2].' 73');
+exec('/usr/bin/python /var/www/worldofhackers.eu/python/badge_add.py user '.$best['soft'][3].' 74');
 
-exec('/usr/bin/env python /var/www/python/badge_add.py user '.$best['ddos'][1].' 76');
-exec('/usr/bin/env python /var/www/python/badge_add.py user '.$best['ddos'][2].' 77');
-exec('/usr/bin/env python /var/www/python/badge_add.py user '.$best['ddos'][3].' 78');
+exec('/usr/bin/python /var/www/worldofhackers.eu/python/badge_add.py user '.$best['ddos'][1].' 76');
+exec('/usr/bin/python /var/www/worldofhackers.eu/python/badge_add.py user '.$best['ddos'][2].' 77');
+exec('/usr/bin/python /var/www/worldofhackers.eu/python/badge_add.py user '.$best['ddos'][3].' 78');
 
-exec('/usr/bin/env python /var/www/python/badge_add.py clan '.$best['clan'][1].' 81');
-exec('/usr/bin/env python /var/www/python/badge_add.py clan '.$best['clan'][2].' 82');
-exec('/usr/bin/env python /var/www/python/badge_add.py clan '.$best['clan'][3].' 83');
+exec('/usr/bin/python /var/www/worldofhackers.eu/python/badge_add.py clan '.$best['clan'][1].' 81');
+exec('/usr/bin/python /var/www/worldofhackers.eu/python/badge_add.py clan '.$best['clan'][2].' 82');
+exec('/usr/bin/python /var/www/worldofhackers.eu/python/badge_add.py clan '.$best['clan'][3].' 83');
 
 //almost there
 for($i = 4; $i <= 10; $i++){
     if(array_key_exists($i, $best['user'])){
-        exec('/usr/bin/env python /var/www/python/badge_add.py user '.$best['user'][$i].' 10');
+        exec('/usr/bin/python /var/www/worldofhackers.eu/python/badge_add.py user '.$best['user'][$i].' 10');
     }
     if(array_key_exists($i, $best['soft'])){
-        exec('/usr/bin/env python /var/www/python/badge_add.py user '.$best['soft'][$i].' 75');
+        exec('/usr/bin/python /var/www/worldofhackers.eu/python/badge_add.py user '.$best['soft'][$i].' 75');
     }
     if(array_key_exists($i, $best['ddos'])){
-        exec('/usr/bin/env python /var/www/python/badge_add.py user '.$best['ddos'][$i].' 79');
+        exec('/usr/bin/python /var/www/worldofhackers.eu/python/badge_add.py user '.$best['ddos'][$i].' 79');
     }
     if(array_key_exists($i, $best['clan'])){
-        exec('/usr/bin/env python /var/www/python/badge_add.py clan '.$best['clan'][$i].' 84');
+        exec('/usr/bin/python /var/www/worldofhackers.eu/python/badge_add.py clan '.$best['clan'][$i].' 84');
     }
 }
 

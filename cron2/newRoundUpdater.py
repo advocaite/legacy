@@ -1,7 +1,7 @@
 import MySQLdb
 import os
 
-db = MySQLdb.connect(host="localhost",user="he",passwd="REDACTED",db="game")
+db = MySQLdb.connect(host="localhost",user="he",passwd="hegame123",db="game")
 cur = db.cursor()
 
 cur.execute("SELECT id FROM round WHERE status = 0 AND TIMESTAMPDIFF(SECOND, startDate, NOW()) > 0 LIMIT 1")
@@ -10,7 +10,7 @@ for roundID in cur.fetchall():
 
 	# 2019: NPCs need to be generated BEFORE newroundupdater
 	#NPCs precisam ser gerados ANTES do newroundupdater
-	os.system('python /var/www/python/npc_generator.py')
+	os.system('python /var/www/worldofhackers.eu/python/npc_generator.py')
 
 	import random
 	import string
@@ -97,7 +97,7 @@ for roundID in cur.fetchall():
 
 
 	os.system('python /var/www/cron2/updateRanking.py')
-	os.system('python /var/www/python/rank_generator.py')
+	os.system('python /var/www/worldofhackers.eu/python/rank_generator.py')
 
 	title = 'Round #'+str(roundID[0])+' started'
 	content = 'Ye\'all, get ready to hack! Round '+str(roundID[0])+' just started.'

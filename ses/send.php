@@ -6,8 +6,8 @@ use Aws\Ses\SesClient;
 function send(){
 
     $client = SesClient::factory(array(
-        'key'    => 'REDACTED',
-        'secret' => 'REDACTED',
+        'key'    => 'hegame123',
+        'secret' => 'hegame123',
         'region' => 'us-west-2'
     ));
 

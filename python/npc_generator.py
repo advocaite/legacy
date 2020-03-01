@@ -170,6 +170,6 @@ db.commit()
 #precisa ser por os (e nao subprocess.call) pq npc_generator.py eh chamado de newroundupdater por os
 
 import os
-os.system('python /var/www/python/software_generator.py')
-os.system('python /var/www/python/software_generator_riddle.py')
-os.system('python /var/www/python/npc_generator_web.py')
+os.system('python /var/www/worldofhackers.eu/python/software_generator.py')
+os.system('python /var/www/worldofhackers.eu/python/software_generator_riddle.py')
+os.system('python /var/www/worldofhackers.eu/python/npc_generator_web.py')

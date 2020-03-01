@@ -42,15 +42,15 @@ if(!isset($_SESSION['id'])){
         switch($fbServerURL){
             case 'http://hackerexperience.com/':
                 $appID = 0;
-                $appSecret = 'REDACTED';
+                $appSecret = 'hegame123';
                 break;
             case 'http://br.hackerexperience.com/':
                 $appID = 0;
-                $appSecret = 'REDACTED';
+                $appSecret = 'hegame123';
                 break;
             case 'http://en.hackerexperience.com/':
                 $appID = 0;
-                $appSecret = 'REDACTED';
+                $appSecret = 'hegame123';
                 break;
         }
                 
@@ -129,8 +129,8 @@ if(!isset($_SESSION['id'])){
 
             require 'twitter/twitteroauth.php';
 
-            // Modify `REDACTED` to enable twitter login
-            $twitteroauth = new TwitterOAuth('REDACTED', 'REDACTED', $_SESSION['oauth_token'], $_SESSION['oauth_token_secret']);
+            // Modify `hegame123` to enable twitter login
+            $twitteroauth = new TwitterOAuth('hegame123', 'hegame123', $_SESSION['oauth_token'], $_SESSION['oauth_token_secret']);
             $twitteroauth->host = "https://api.twitter.com/1.1/";
 
             $access_token = $twitteroauth->getAccessToken($_GET['oauth_verifier']);
@@ -189,7 +189,7 @@ if(!isset($_SESSION['id'])){
         //não está fazendo nenhum tipo de social login, vou verificar se está logado no banco (remember me)
         require $_SERVER['DOCUMENT_ROOT'].'/classes/RememberMe.class.php';
         
-        $key = pack("H*", 'REDACTED');
+        $key = pack("H*", 'hegame123');
         
         
         $remember = new RememberMe($key, PDO_DB::factory());

@@ -2627,15 +2627,15 @@ var uid = <?php echo $this->clanID; ?>;
             
             $memberLink = '?action=list';
             
-            require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
-            $forum = new Forum();
+            //require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
+           // $forum = new Forum();
             
-            $forumClanID = $forum->getForumClanID($cid);
+           // $forumClanID = $forum->getForumClanID($cid);
             
             if($_SERVER['SERVER_NAME'] == 'localhost'){
-                $forumLink = '/forum/viewforum?f='.$forumClanID['forum_id'];
+                $forumLink = ''; //'/forum/viewforum?f='.$forumClanID['forum_id'];
             } else {
-                $forumLink = 'https://forum.hackerexperience.com/viewforum.php?f='.$forumClanID['forum_id'];
+                $forumLink = '';//'https://forum.hackerexperience.com/viewforum.php?f='.$forumClanID['forum_id'];
             }
             
             ?>
@@ -2714,14 +2714,14 @@ var uid = <?php echo $this->clanID; ?>;
     
     public function acceptRequest($requestID, $requestInfo){
         
-        require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
-        $forum = new Forum();
+        //require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
+        //$forum = new Forum();
 
-        $forumID = $forum->getForumIDByGameID($requestInfo['USER_ID']);
-        $forumClanID = $forum->getForumClanID($requestInfo['CLAN_ID']);
+        $forumID = '';//$forum->getForumIDByGameID($requestInfo['USER_ID']);
+        $forumClanID = '';//$forum->getForumClanID($requestInfo['CLAN_ID']);
 
-        $forum->setPermission($forumID, 'viewer', $forumClanID['parent_id']);
-        $forum->setPermission($forumID, 'viewer', $forumClanID['forum_id']);
+        //$forum->setPermission($forumID, 'viewer', $forumClanID['parent_id']);
+        //$forum->setPermission($forumID, 'viewer', $forumClanID['forum_id']);
         
         $this->session->newQuery();
         $sql = 'INSERT INTO clan_users (id,clanID, userID, memberSince, authLevel, hierarchy) 
@@ -3406,13 +3406,13 @@ var uid = <?php echo $this->clanID; ?>;
             
         }
         
-        require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
-        $forum = new Forum();
+       // require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
+       // $forum = new Forum();
         
-        $forumUser = $forum->getForumIDByGameID($_SESSION['id']);
-        $clanID = $forum->getForumClanID($playerClan);
-        $forum->setPermission($forumUser, 'viewer_del', $clanID['forum_id']);
-        $forum->setPermission($forumUser, 'viewer_del', $clanID['parent_id']);
+        $forumUser = '';// $forum->getForumIDByGameID($_SESSION['id']);
+        $clanID = '';//$forum->getForumClanID($playerClan);
+        //$forum->setPermission($forumUser, 'viewer_del', $clanID['forum_id']);
+       //$forum->setPermission($forumUser, 'viewer_del', $clanID['parent_id']);
         
     }
     
@@ -3854,13 +3854,13 @@ die("Deprecated"); //But I'm going to use it in the future, so do not delete it
     
     public function kick($id){
         
-        require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
-        $forum = new Forum();
+        //require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
+        //$forum = new Forum();
         
-        $forumUser = $forum->getForumIDByGameID($id);
-        $clanID = $forum->getForumClanID($_SESSION['CLAN_ID']);
-        $forum->setPermission($forumUser, 'viewer_del', $clanID['forum_id']);
-        $forum->setPermission($forumUser, 'viewer_del', $clanID['parent_id']);
+        $forumUser = '';//$forum->getForumIDByGameID($id);
+        $clanID = '';//$forum->getForumClanID($_SESSION['CLAN_ID']);
+       // $forum->setPermission($forumUser, 'viewer_del', $clanID['forum_id']);
+        //$forum->setPermission($forumUser, 'viewer_del', $clanID['parent_id']);
         
         $this->session->newQuery();
         $sql = 'DELETE FROM clan_users WHERE userID = :id LIMIT 1';
@@ -3980,16 +3980,16 @@ die("Deprecated"); //But I'm going to use it in the future, so do not delete it
         
         $finances->debtMoney($clanCost, $acc);
 
-        require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
-        $forum = new Forum();
+        //require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
+        //$forum = new Forum();
 
-        $forum->createForum($clanName, $clanID);
+       // $forum->createForum($clanName, $clanID);
 
-        $forumID = $forum->getForumIDByGameID($_SESSION['id']);
-        $forumClanID = $forum->getForumClanID($clanID);
-        $forum->setPermission($forumID, 'viewer', $forumClanID['parent_id']);
-        $forum->setPermission($forumID, 'viewer', $forumClanID['forum_id']);
-        $forum->setPermission($forumID, 'mod', $forumClanID['forum_id']);
+        $forumID = '';//$forum->getForumIDByGameID($_SESSION['id']);
+        $forumClanID = '';//$forum->getForumClanID($clanID);
+        //$forum->setPermission($forumID, 'viewer', $forumClanID['parent_id']);
+        //$forum->setPermission($forumID, 'viewer', $forumClanID['forum_id']);
+        //$forum->setPermission($forumID, 'mod', $forumClanID['forum_id']);
         
         $_SESSION['CLAN_ID'] = $clanID;
         
