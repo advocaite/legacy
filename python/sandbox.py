@@ -1,9 +1,9 @@
 # import gettext
 
-# gettext.bindtextdomain('messages', $_SERVER['DOCUMENT_ROOT'].'/locale')
+# gettext.bindtextdomain('messages', '/var/www/worldofhackers.eu/locale')
 # gettext.textdomain('messages')
 
-# t = gettext.translation('pt', $_SERVER['DOCUMENT_ROOT'].'/locale', fallback=True)
+# t = gettext.translation('pt', '/var/www/worldofhackers.eu/locale', fallback=True)
 
 # _ = t.ugettext
 # # ...

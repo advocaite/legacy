@@ -6,7 +6,7 @@ def add(total):
 
 	print "adding "+str(total)
 
-	f = open($_SERVER['DOCUMENT_ROOT'].'/status/queries.txt', 'r+')
+	f = open('/var/www/worldofhackers.eu/status/queries.txt', 'r+')
 
 	totalQuery = f.read()
 

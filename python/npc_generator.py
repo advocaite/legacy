@@ -3,10 +3,10 @@ import json
 import random
 import string
 
-db = MySQLdb.connect(host="localhost",user="he",passwd="REDADCTED",db="game")
+db = MySQLdb.connect(host="localhost",user="he",passwd="hegame123",db="game")
 cur = db.cursor()
 
-json_data = open($_SERVER['DOCUMENT_ROOT'].'/json/npc.json').read()
+json_data = open('/var/www/worldofhackers.eu/json/npc.json').read()
 npcList = json.loads(json_data)
 
 def ip_generator():

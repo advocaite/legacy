@@ -37,7 +37,7 @@ def install_gettext(lang):
 
 	trans.install(unicode=True)
 
-json_data = open($_SERVER['DOCUMENT_ROOT'].'/json/badges.json').read()
+json_data = open('/var/www/worldofhackers.eu/json/badges.json').read()
 badgeList = json.loads(json_data)
 
 def getBadgeInfo(badgeID):
@@ -48,7 +48,7 @@ def getBadgeInfo(badgeID):
 
 def save(html, userID, lang):
 
-	f = open($_SERVER['DOCUMENT_ROOT'].'/html/profile/'+userID+'_'+lang+'.html', 'w')
+	f = open('/var/www/worldofhackers.eu/html/profile/'+userID+'_'+lang+'.html', 'w')
 	f.write(html.encode("UTF-8"))
 	f.close()
 
@@ -94,7 +94,7 @@ def PlayTime(seconds):
 
 	return str(ret)
 
-db = MySQLdb.connect(host="localhost",user="he",passwd="REDADCTED",db="game")
+db = MySQLdb.connect(host="localhost",user="he",passwd="hegame123",db="game")
 cur = db.cursor()
 
 userID = str(sys.argv[1])
@@ -211,7 +211,7 @@ for login, premium, clanID, clanName, clanTag, clanOwner, ranking, gameAge, repu
 				friendReputation = 0
 
 			friendPic = 'images/profile/thumbnail/'+str(hashlib.md5(str(friendName+friendID)).hexdigest())+'.jpg'
-			if not os.path.isfile($_SERVER['DOCUMENT_ROOT'].'/'+friendPic):
+			if not os.path.isfile('/var/www/worldofhackers.eu/'+friendPic):
 				friendPic = 'images/profile/thumbnail/unsub.jpg'
 
 			friendsHTML += '\n\
@@ -285,7 +285,7 @@ for login, premium, clanID, clanName, clanTag, clanOwner, ranking, gameAge, repu
 		staffBadge = '<span class="label label-important">'+__('Staff')+'</span>'
 
 	pic = 'images/profile/'+str(hashlib.md5(login+userID).hexdigest())+'.jpg'
-	if not os.path.isfile($_SERVER['DOCUMENT_ROOT'].'/'+pic):
+	if not os.path.isfile('/var/www/worldofhackers.eu/'+pic):
 		pic = 'images/profile/unsub.jpg'
 
 	html = '\n\

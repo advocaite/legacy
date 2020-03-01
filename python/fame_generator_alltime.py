@@ -43,7 +43,7 @@ def save(html, rank, page):
 	if type(page) != int:
 		page = 'preview'
 
-	f = open($_SERVER['DOCUMENT_ROOT'].'/html/fame/top_'+rank+'_'+str(page)+'.html', 'w')
+	f = open('/var/www/worldofhackers.eu/html/fame/top_'+rank+'_'+str(page)+'.html', 'w')
 	f.write(html)
 	f.close()
 
@@ -372,7 +372,7 @@ def createRankDDoS(preview):
 
 		save(html, 'ddos', page)
 
-db = MySQLdb.connect(host="localhost",user="he",passwd="REDADCTED",db="game")
+db = MySQLdb.connect(host="localhost",user="he",passwd="hegame123",db="game")
 cur = db.cursor()
 
 try:

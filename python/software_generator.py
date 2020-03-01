@@ -13,7 +13,7 @@ import string
 db = MySQLdb.connect(host="localhost",user="he",passwd="hegame123",db="game")
 cur = db.cursor()
 
-json_data = open($_SERVER['DOCUMENT_ROOT'].'/json/npcsoftware.json').read()
+json_data = open('/var/www/worldofhackers.eu/json/npcsoftware.json').read()
 softList = json.loads(json_data)
 
 typeDict = {
