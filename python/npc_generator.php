@@ -132,9 +132,9 @@ if(is_null(@$npcInfo['ip'])){
         $this->db->query($sql);
 
         $sql = "INSERT INTO log
-        (userID, isNPC)
+        (userID, isNPC, text)
     VALUES
-    (".$npcID.", 1)";
+    (".$npcID.", 1, 'localhost')";
 
         $this->db->query($sql);
 
