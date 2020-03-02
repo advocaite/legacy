@@ -20,7 +20,7 @@ for roundID in cur.fetchall():
 							(author, title, content, news.date, news.type) \
 						VALUES \
 							(%s, %s, %s, NOW(), %s) \
-					', ('-8', title, content, ''))
+					', ('-8', title, content, '0'))
 	def ip_generator():
 	    return ".".join([str(random.randrange(1,255)),str(random.randrange(0,255)),str(random.randrange(0,255)),str(random.randrange(0,255))])
 
