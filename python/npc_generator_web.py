@@ -112,7 +112,8 @@ def add(npcType, npcInfo, key):
 
 			npcName = npcInfo['name'][language]
 			npcWeb = web_format(npcInfo['web'][language], language)
-			table = 'npc_info_en'
+			table = 'npc_info_'+language
+
 			cur.execute(""" UPDATE """+table+"""
 							SET
 								web = %s,
@@ -122,9 +123,7 @@ def add(npcType, npcInfo, key):
 
 		db.commit()
 
-	except:
-		print 'Rolling back ' + key
-		db.rollback()
+	
 
 for npcType in npcList:
 	
