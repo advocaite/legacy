@@ -625,40 +625,7 @@ require 'html/fame/'. ($this->curRound - 1) .'_'.$pathName.'_preview.html';
                     </div>
                     
                 <div class="row-fluid">
-
-                    <div class="widget-box">
-
-                        <div class="widget-title">
-                            <span class="icon"><i class="fa fa-arrow-right"></i></span>
-                            <h5>Forum Updates</h5>
-                        </div>
-
-                        <div class="widget-content padding noborder">
-
-                            <div class="span7">
-
-                                <?php
-                                self::forum_show('recent_comments');
-                                ?>
-
-                            </div>
-
-                            <div class="span5">
-
-                                <?php
-                                self::forum_show('recent_posts');
-
-                                self::forum_show('announcements');
-
-                                ?>                                    
-
-                            </div>
-
-                        </div>
-
-                    <div style="clear: both;" class="nav nav-tabs">&nbsp;</div>
-
-                </div>
+                    
 
         <?php
         
@@ -824,95 +791,6 @@ require 'html/fame/'. ($this->curRound - 1) .'_'.$pathName.'_preview.html';
 
         <?php
 
-    }
-    
-    public function forum_show($page){
-        
-        if(!$this->forum){
-            require_once $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
-            $this->forum = new Forum();
-        }
-        
-        switch($page){
-            
-            case 'recent_comments':
-                
-                ?>
-                        
-
-                                    <div class="widget-box">
-
-                                        <div class="widget-title">
-                                            <span class="icon"><i class="he16-comments"></i></span>
-                                            <h5><?php echo _("Recent Comments"); ?></h5>
-                                        </div>
-
-                                        <div class="widget-content padding border">
-
-<?php
-     $this->forum->showPosts('recent_comments');                                       
-?>
-
-                                        </div>  
-
-                                    </div>
-                        
-                <?php
-                
-                break;
-            case 'recent_posts':
-                
-                ?>
-                
-
-                                    <div class="widget-box">
-
-                                        <div class="widget-title">
-                                            <span class="icon"><span class="he16-directions"></span></span>
-                                            <h5><?php echo _("Recent Posts"); ?></h5>
-                                        </div>
-
-                                        <div class="widget-content padding border">
-
-<?php
-     $this->forum->showPosts('recent_posts');                                       
-?>
-
-                                        </div>  
-
-                                    </div>
-
-                    <?php
-                
-                break;
-            case 'announcements':
-                
-                ?>
-                        
-                                    <div class="widget-box">
-
-                                        <div class="widget-title">
-                                            <span class="icon"><span class="he16-announcements"></span></span>
-                                            <h5>Announcements</h5>
-                                            <span class="label label-important">New</span>
-                                        </div>
-
-                                        <div class="widget-content padding border">
-
-<?php
-     $this->forum->showPosts('announcements');                                       
-?>
-
-                                        </div>  
-
-                                    </div>                           
-                        
-                <?php
-                
-                break;
-            
-        }
-        
     }
     
     public function isAdmin($uid = ''){
