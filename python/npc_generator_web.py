@@ -110,7 +110,7 @@ def add(npcType, npcInfo, key):
 
 		npcName = npcInfo['name']['en']
 		npcWeb = web_format(npcInfo['web']['en'], 'en')
-		table = 'npc_info_en
+		table = 'npc_info_en'
 
 		cur.execute(""" UPDATE """+table+"""
 							SET
