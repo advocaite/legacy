@@ -172,6 +172,6 @@ db.commit()
 import os
 #os.system('python /var/www/worldofhackers.eu/python/software_generator.py')
 #ru new php scripts untill i learn python and fix issues
-os.system('php /var/www/worldofhackers.eu/python/software_generator.php')
-os.system('php /var/www/worldofhackers.eu/python/software_generator_riddle.php')
-os.system('python /var/www/worldofhackers.eu/python/npc_generator_web.py')
+#os.system('php /var/www/worldofhackers.eu/python/software_generator.php')
+#os.system('php /var/www/worldofhackers.eu/python/software_generator_riddle.php')
+#os.system('python /var/www/worldofhackers.eu/python/npc_generator_web.py')
