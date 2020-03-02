@@ -108,18 +108,18 @@ def add(npcType, npcInfo, key):
 
 		#add to npc_info_lang
 
-		    npcName = npcInfo['name']['en']
-		    npcWeb = web_format(npcInfo['web']['en'], 'en')
-		    table = 'npc_info_en
+		npcName = npcInfo['name']['en']
+		npcWeb = web_format(npcInfo['web']['en'], 'en')
+		table = 'npc_info_en
 
-		    cur.execute(""" UPDATE """+table+"""
+		cur.execute(""" UPDATE """+table+"""
 							SET
 								web = %s,
 								name = %s
 							WHERE npcID = %s
 						""", (npcWeb.encode('utf-8').decode('cp1252'), npcName.encode('utf-8').decode('cp1252'), npcID))
 
-		    db.commit()
+		db.commit()
 
 	except:
 		print 'Rolling back ' + key
