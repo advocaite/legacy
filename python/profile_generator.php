@@ -21,7 +21,7 @@ private $db = null;
      */
     public function __construct($id = null, $lang = 'en')
     {
-        $this->badge_data = file_get_contents("../json/badges.json");
+        $this->badge_data = file_get_contents($_SERVER['DOCUMENT_ROOT']."/json/badges.json");
         $this->badgeList = json_decode($this->badge_data, true);
         $this->userID = $id;
         $this->lang = $lang;
@@ -80,7 +80,7 @@ private $db = null;
 
     function save($html)
     {
-        $this->savefile = fopen("../html/profile/" . $this->userID . "_" . $this->lang . ".html", "w") or die("Unable to open file!");
+        $this->savefile = fopen($_SERVER['DOCUMENT_ROOT']."/html/profile/" . $this->userID . "_" . $this->lang . ".html", "w") or die("Unable to open file!");
         fwrite($this->savefile, $html);
         fclose($this->savefile);
     }
