@@ -625,7 +625,7 @@ require 'html/fame/'. ($this->curRound - 1) .'_'.$pathName.'_preview.html';
                     </div>
                     
                 <div class="row-fluid">
-                    
+
 
         <?php
         
@@ -734,34 +734,8 @@ require 'html/fame/'. ($this->curRound - 1) .'_'.$pathName.'_preview.html';
                     <div class="row-fluid">
 
                         <div class="widget-box">
-
-                            <div class="widget-title">
-                                <span class="icon"><i class="fa fa-arrow-right"></i></span>
-                                <h5><?php echo _("Forum Updates"); ?></h5>
-                            </div>
           
-                            <div class="widget-content padding noborder">
 
-                                <div class="span7">        
-                                    
-                                    <?php
-                                    self::forum_show('recent_comments');
-                                    ?>
-                                    
-                                </div>
-                                    
-                                <div class="span5">
-                                
-                                    <?php
-                                    self::forum_show('recent_posts');
-                                    
-                                    self::forum_show('announcements');
-                                    
-                                    ?>                                    
-                                    
-                                </div>
-                                
-                            </div>
                             
                             <div style="clear: both;" class="nav nav-tabs">&nbsp;</div>
      
