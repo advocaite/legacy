@@ -3615,7 +3615,7 @@ if($bankAcc == ''){
     public function important_add($ip){
         
         $this->session->newQuery();
-        $sql = 'INSERT INTO internet_important (id, userID, ip) VALUES (\'\', \''.$_SESSION['id'].'\', \''.$ip.'\')';
+        $sql = 'INSERT INTO internet_important (userID, ip) VALUES ( \''.$_SESSION['id'].'\', \''.$ip.'\')';
         $this->pdo->query($sql);
         
     }
