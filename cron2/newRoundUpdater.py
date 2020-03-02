@@ -96,7 +96,7 @@ for roundID in cur.fetchall():
 	cur.execute("INSERT INTO round_stats (id) VALUES (%s)", str(roundID[0]))
 
 
-	os.system('python /var/www/cron2/updateRanking.py')
+	os.system('python /var/www/worldofhackers.eu/cron2/updateRanking.py')
 	os.system('python /var/www/worldofhackers.eu/python/rank_generator.py')
 
 	title = 'Round #'+str(roundID[0])+' started'
