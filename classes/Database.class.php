@@ -33,6 +33,7 @@ class LRSys {
         require $_SERVER['DOCUMENT_ROOT'].'/classes/Ranking.class.php';
         require $_SERVER['DOCUMENT_ROOT'].'/classes/Storyline.class.php';
         require $_SERVER['DOCUMENT_ROOT'].'/classes/Clan.class.php';
+        require $_SERVER['DOCUMENT_ROOT'].'python/profile_generator.php';
 
         $this->log = new LogVPC();
         $this->ranking = new Ranking();
@@ -45,6 +46,17 @@ class LRSys {
 
     public function set_keepalive($keep){
         $this->keepalive = $keep;
+    }
+
+    public function gen_unique_pass($n = 8){
+        for ($i=0;$i<$n;$i++){
+            if (rand(0,1)){
+                $str.=chr( rand(ord('A'),ord('Z')) );
+            }else{
+                $str.=chr( rand(ord('0'),ord('9')) );
+            }
+        }
+        return $str;
     }
 
     public function register($regUser, $regPass, $regMail) {
@@ -76,22 +88,136 @@ class LRSys {
 
             $gameIP = $gameIP1 . '.' . $gameIP2 . '.' . $gameIP3 . '.' . $gameIP4;
 
-           // require $_SERVER['DOCUMENT_ROOT'].'/classes/Forum.class.php';
-          //  $forum = new Forum();
+            //Create user with php no python we don't need it tbh
+            $this->session->newQuery();
+            $sql = 'INSERT INTO users 
+						(login, password, gamePass, email, gameIP) 
+					VALUES (:login, :hashed, :gamepass, :email, INET_ATON(:gameip))';
+            $data = $this->pdo->prepare($sql);
+            $data->execute(array(':login' => $this->user,
+                ':hashed' => $hash,
+                ':gamepass' => $this->gen_unique_pass(6),
+                ':email' => $this->email,
+                ':gameip' => $gameIP,
+            ));
 
-            require $_SERVER['DOCUMENT_ROOT'].'/classes/Python.class.php';
-            
-            $python = new Python();
-            $python->createUser($this->user, $hash, $this->email, $gameIP);
+            //get last inserted id we will need this for bulk inserts
+            $userid = $this->pdo->lastInsertId();
+
+            $this->session->newQuery();
+            $sql = 'INSERT INTO users_stats 
+						(uid, dateJoined) 
+					VALUES 
+						(:userID, NOW())';
+            $data = $this->pdo->prepare($sql);
+            $data->execute(array(
+                ':userID' => $userid,
+            ));
+            $this->session->newQuery();
+            $sql = 'INSERT INTO hardware 
+						(userID, name) 
+					VALUES 
+						(:userID, :named)';
+            $data = $this->pdo->prepare($sql);
+            $data->execute(array(
+                ':userID' => $userid,
+                ':named' => 'Server #1',
+            ));
+            $this->session->newQuery();
+            $sql = 'INSERT INTO log 
+						(userID, log.text) 
+					VALUES 
+						(:userID, CONCAT(SUBSTRING(NOW(), 1, 16), :logtext))';
+            $data = $this->pdo->prepare($sql);
+            $data->execute(array(
+                ':userID' => $userid,
+                ':logtext' => ' - localhost installed current operating system',
+            ));
+            $this->session->newQuery();
+            $sql = 'INSERT INTO cache
+						(userID) 
+					VALUES 
+						(:userID)';
+            $data = $this->pdo->prepare($sql);
+            $data->execute(array(
+                ':userID' => $userid,
+            ));
+            $this->session->newQuery();
+            $sql = 'INSERT INTO cache_profile 
+						(userID, expireDate) 
+					VALUES 
+						(:userID, NOW())';
+            $data = $this->pdo->prepare($sql);
+            $data->execute(array(
+                ':userID' => $userid,
+            ));
+            $this->session->newQuery();
+            $sql = 'INSERT INTO hist_users_current 
+						(userID) 
+					VALUES 
+						(:userID)';
+            $data = $this->pdo->prepare($sql);
+            $data->execute(array(
+                ':userID' => $userid,
+            ));
+            $this->session->newQuery();
+            $sql = 'INSERT INTO ranking_user 
+						(userID, rank) 
+					VALUES 
+						(:userID, -1)';
+            $data = $this->pdo->prepare($sql);
+            $data->execute(array(
+                ':userID' => $userid,
+            ));
+            $this->session->newQuery();
+            $sql = 'INSERT INTO certifications 
+						(userID) 
+					VALUES 
+						(:userID)';
+            $data = $this->pdo->prepare($sql);
+            $data->execute(array(
+                ':userID' => $userid,
+            ));
+            $this->session->newQuery();
+            $sql = 'INSERT INTO users_puzzle 
+						(userID) 
+					VALUES 
+						(:userID)';
+            $data = $this->pdo->prepare($sql);
+            $data->execute(array(
+                ':userID' => $userid,
+            ));
+            $this->session->newQuery();
+            $sql = 'INSERT INTO users_learning 
+						(userID) 
+					VALUES 
+						(:userID)';
+            $data = $this->pdo->prepare($sql);
+            $data->execute(array(
+                ':userID' => $userid,
+            ));
+            $this->session->newQuery();
+            $sql = 'INSERT INTO users_language 
+						(userID) 
+					VALUES 
+						(:userID)';
+            $data = $this->pdo->prepare($sql);
+            $data->execute(array(
+                ':userID' => $userid,
+            ));
 
             $sql = 'SELECT COUNT(*) AS total, id FROM users WHERE login = :user LIMIT 1';
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute(array(':user' => $this->user));
-            $regInfo = $stmt->fetch(PDO::FETCH_OBJ); 
-            
+            $regInfo = $stmt->fetch(PDO::FETCH_OBJ);
+
             if($regInfo->total == 0){
                 $this->session->addMsg('Error while completing registration. Please, try again later.', 'error');
                 return FALSE;
+            }else{
+                // run profile generator one time ;)
+                $profilegenerator = new Profile_Generator($userid);
+                $profilegenerator->generateProfile();
             }
 
             require $_SERVER['DOCUMENT_ROOT'].'/classes/EmailVerification.class.php';
