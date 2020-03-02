@@ -123,6 +123,10 @@ def add(npcType, npcInfo, key):
 
 		db.commit()
 
+	except:
+		print 'Rolling back ' + key
+		db.rollback()
+
 for npcType in npcList:
 	
 	try:
