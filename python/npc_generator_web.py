@@ -123,8 +123,6 @@ def add(npcType, npcInfo, key):
 
 		db.commit()
 
-	
-
 for npcType in npcList:
 	
 	try:
