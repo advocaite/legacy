@@ -33,7 +33,7 @@ class LRSys {
         require $_SERVER['DOCUMENT_ROOT'].'/classes/Ranking.class.php';
         require $_SERVER['DOCUMENT_ROOT'].'/classes/Storyline.class.php';
         require $_SERVER['DOCUMENT_ROOT'].'/classes/Clan.class.php';
-        require $_SERVER['DOCUMENT_ROOT'].'python/profile_generator.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/python/profile_generator.php';
 
         $this->log = new LogVPC();
         $this->ranking = new Ranking();
